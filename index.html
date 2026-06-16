@@ -1,0 +1,1999 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Guia consultivo do Plano Pet Itaú para consultores e gerentes: oferta dos modelos Petlove e A.Pet com clareza, ética e foco no cliente."
+    />
+    <title>Manual Plano Pet Itaú</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonte externa com fallback local. Sem dependência obrigatória: se falhar, cai para a pilha de fallback do CSS. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ====================================================================== -->
+    <!-- SPRITE DE ÍCONES SVG (inline, sem dependência externa)                  -->
+    <!-- OBJETIVO: ícones temáticos referenciados por <use>. COMO REUTILIZAR:    -->
+    <!-- trocar os paths por SVGs reais; manter os ids para não quebrar <use>.   -->
+    <!-- ====================================================================== -->
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <symbol id="ic-paw" viewBox="0 0 24 24">
+          <path
+            d="M8.5 7.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm11 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM6.5 13a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm15 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM12 13.5c2.8 0 5 2 5 4.2 0 1.6-1.3 2.3-3 2.3-.9 0-1.4-.3-2-.3s-1.1.3-2 .3c-1.7 0-3-.7-3-2.3 0-2.2 2.2-4.2 5-4.2Z"
+          />
+        </symbol>
+        <symbol id="ic-stetho" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 3v5a4 4 0 0 0 8 0V3M4 3h3M13 3h3M10 16v1a4 4 0 0 0 8 0v-2"
+          />
+          <circle
+            cx="18"
+            cy="12"
+            r="2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+        </symbol>
+        <symbol id="ic-clinic" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+            d="M3 21V9l9-6 9 6v12"
+          />
+          <path
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            d="M12 9v6M9 12h6"
+          />
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            d="M9 21v-4h6v4"
+          />
+        </symbol>
+        <symbol id="ic-phone" viewBox="0 0 24 24">
+          <rect
+            x="6"
+            y="2"
+            width="12"
+            height="20"
+            rx="2.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            d="M10 18h4"
+          />
+        </symbol>
+        <symbol id="ic-shield" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+            d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3Z"
+          />
+          <path
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"
+            d="m8.5 12 2.2 2.2L15.5 9.5"
+          />
+        </symbol>
+        <symbol id="ic-doc" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+            d="M6 2h8l4 4v16H6V2Z"
+          />
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            d="M14 2v4h4"
+          />
+          <path
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            d="M9 12h6M9 16h6"
+          />
+        </symbol>
+        <symbol id="ic-invoice" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+            d="M6 2h12v20l-2-1.3L14 22l-2-1.3L10 22l-2-1.3L6 22V2Z"
+          />
+          <path
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            d="M9 8h6M9 12h6"
+          />
+        </symbol>
+        <symbol id="ic-calendar" viewBox="0 0 24 24">
+          <rect
+            x="3"
+            y="5"
+            width="18"
+            height="16"
+            rx="2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            d="M3 9h18M8 3v4M16 3v4"
+          />
+        </symbol>
+        <symbol id="ic-chip" viewBox="0 0 24 24">
+          <rect
+            x="6"
+            y="6"
+            width="12"
+            height="12"
+            rx="2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"
+          />
+        </symbol>
+        <symbol id="ic-piggy" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+            d="M4 12a7 5 0 0 1 14 0v4h2v-4M11 7c2 0 3 .4 4 1M6 16v3M16 16v3"
+          />
+          <circle cx="15" cy="11" r="1" fill="currentColor" />
+        </symbol>
+        <symbol id="ic-search" viewBox="0 0 24 24">
+          <circle
+            cx="11"
+            cy="11"
+            r="6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            d="m20 20-4.5-4.5"
+          />
+        </symbol>
+        <symbol id="ic-syringe" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m14 4 6 6M16 6 9 13l-4 1-1-1 1-4 7-7M9 13l2 2M5 19l-2 2M7 17l-2 2"
+          />
+        </symbol>
+        <symbol id="ic-heart" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+            d="M12 20S4 14.5 4 9a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 5.5-8 11-8 11Z"
+          />
+        </symbol>
+        <symbol id="ic-check" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m4 12 5 5L20 6"
+          />
+        </symbol>
+        <symbol id="ic-refresh" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 12a8 8 0 0 1 13.7-5.6L20 8M20 4v4h-4M20 12a8 8 0 0 1-13.7 5.6L4 16M4 20v-4h4"
+          />
+        </symbol>
+        <symbol id="ic-network" viewBox="0 0 24 24">
+          <circle
+            cx="12"
+            cy="5"
+            r="2.4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <circle
+            cx="5"
+            cy="18"
+            r="2.4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <circle
+            cx="19"
+            cy="18"
+            r="2.4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            stroke="currentColor"
+            stroke-width="1.8"
+            d="M12 7.4 6.5 15.8M12 7.4l5.5 8.4M7.4 18h9.2"
+          />
+        </symbol>
+        <symbol id="ic-scale" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 3v18M7 21h10M5 7h14M9 7 6 13a3 3 0 0 0 6 0L9 7Zm6 0-3 6a3 3 0 0 0 6 0l-3-6Z"
+          />
+        </symbol>
+        <symbol id="ic-alert" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+            d="M12 3 2 20h20L12 3Z"
+          />
+          <path
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            d="M12 9v5"
+          />
+          <circle cx="12" cy="17" r="1" fill="currentColor" />
+        </symbol>
+        <symbol id="ic-funnel" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+            d="M3 4h18l-7 8v7l-4 2v-9L3 4Z"
+          />
+        </symbol>
+        <symbol id="ic-star" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="m12 3 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.1l1-5.8L3.5 9.2l5.9-.9L12 3Z"
+          />
+        </symbol>
+        <symbol id="ic-route" viewBox="0 0 24 24">
+          <circle
+            cx="6"
+            cy="6"
+            r="2.4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <circle
+            cx="18"
+            cy="18"
+            r="2.4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 8.4v4a3 3 0 0 0 3 3h6"
+          />
+        </symbol>
+        <symbol id="ic-book" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+            d="M4 4h7a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4V4Zm16 0h-7a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h7V4Z"
+          />
+        </symbol>
+        <symbol id="ic-cart" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 7H6"
+          />
+          <circle cx="10" cy="20" r="1.4" fill="currentColor" />
+          <circle cx="17" cy="20" r="1.4" fill="currentColor" />
+        </symbol>
+        <symbol id="ic-tag" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M20 11.5 12.5 4H4v8.5L11.5 20a1.5 1.5 0 0 0 2.1 0l6.4-6.4a1.5 1.5 0 0 0 0-2.1Z"
+          />
+          <circle cx="8" cy="8" r="1.4" fill="currentColor" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <!-- ====================================================================== -->
+    <!-- CABEÇALHO FIXO LARANJA — título branco, sem logotipo do banco           -->
+    <!-- ====================================================================== -->
+    <header class="site-header" id="topo">
+      <div class="site-header__inner">
+        <h1 class="site-header__title">Manual Plano Pet Itaú</h1>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="secNav"
+          aria-label="Abrir índice de seções"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="sec-nav" id="secNav" aria-label="Índice de seções">
+        <ul class="nav-groups">
+          <li class="nav-group">
+            <button type="button" class="nav-group__btn" aria-expanded="false">
+              Produto
+            </button>
+            <ul class="nav-group__panel">
+              <li><a href="#slide-01-capa">Início</a></li>
+              <li><a href="#slide-02-objetivo">Objetivo do material</a></li>
+              <li><a href="#slide-03-jornada">Jornada do cliente</a></li>
+              <li><a href="#slide-04-produto">O que é o produto</a></li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <button type="button" class="nav-group__btn" aria-expanded="false">
+              Planos e coberturas
+            </button>
+            <ul class="nav-group__panel">
+              <li><a href="#slide-05-quem-contrata">Quem contrata</a></li>
+              <li><a href="#slide-06-como-contratar">Como contratar</a></li>
+              <li><a href="#slide-07-escada-planos">Planos e valores</a></li>
+              <li><a href="#slide-08-coberturas">Coberturas Petlove</a></li>
+              <li><a href="#slide-08b-coberturas-apet">Coberturas A.Pet</a></li>
+              <li><a href="#slide-09-multipet">Desconto multipet</a></li>
+              <li><a href="#slide-10-comparativo">A.Pet x Petlove</a></li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <button type="button" class="nav-group__btn" aria-expanded="false">
+              A.Pet
+            </button>
+            <ul class="nav-group__panel">
+              <li><a href="#slide-11-apet-funciona">Como funciona</a></li>
+              <li>
+                <a href="#slide-12-apet-reembolso-checklist"
+                  >Checklist de reembolso</a
+                >
+              </li>
+              <li>
+                <a href="#slide-13-apet-carencia-preexistencia-exclusoes"
+                  >Carência e exclusões</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <button type="button" class="nav-group__btn" aria-expanded="false">
+              Petlove
+            </button>
+            <ul class="nav-group__panel">
+              <li><a href="#slide-14-petlove-funciona">Como funciona</a></li>
+              <li>
+                <a href="#slide-15-petlove-carencia-microchip"
+                  >Carência e microchip</a
+                >
+              </li>
+              <li>
+                <a href="#slide-16-petlove-pulo-carencia">Pulo de carência</a>
+              </li>
+              <li><a href="#slide-17-petlove-cobertura">Cobertura</a></li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <button type="button" class="nav-group__btn" aria-expanded="false">
+              Venda e operação
+            </button>
+            <ul class="nav-group__panel">
+              <li><a href="#slide-18-venda-protegida">Venda protegida</a></li>
+              <li>
+                <a href="#slide-19-situacoes-risco">Situações de risco</a>
+              </li>
+              <li><a href="#slide-20-renovacao">Renovação</a></li>
+              <li><a href="#slide-21-encerramento">Encerramento</a></li>
+              <li>
+                <a href="#slide-22-camada-produto">Features e histórias</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ============================ SLIDE 1 · CAPA ======================== -->
+      <section id="slide-01-capa" class="slide slide--hero">
+        <div class="hero">
+          <div class="hero__content reveal">
+            <span class="eyebrow">Material para consultores e gerentes</span>
+            <h2 class="hero__title">Plano Pet Itaú</h2>
+            <p class="hero__subtitle">Guia consultivo para venda protegida</p>
+            <p class="hero__lead">
+              Apoio para ofertar os modelos <strong>Petlove</strong> e
+              <strong>A.Pet</strong> com clareza, ética e foco no cliente.
+              Disponível no SuperApp.
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#slide-04-produto"
+                >Conhecer o produto</a
+              >
+              <a class="btn btn--ghost" href="#slide-10-comparativo"
+                >Comparar os modelos</a
+              >
+            </div>
+          </div>
+          <figure class="hero__media reveal">
+            <div class="media-slot media-slot--hero">
+              <img
+                class="media-img"
+                data-img="hero"
+                alt="Cão e tutor em ambiente acolhedor"
+              />
+              <div class="img-placeholder" aria-hidden="true">
+                <svg class="icon icon--xl"><use href="#ic-paw"></use></svg>
+                <span class="asset-note">[Imagem de pet · assets/img]</span>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ===== TOOLBAR DE CONSULTA: filtro, expandir/recolher, atalho compliance ===== -->
+      <div class="manual-toolbar">
+        <div class="manual-search">
+          <svg class="icon" aria-hidden="true">
+            <use href="#ic-search"></use>
+          </svg>
+          <input
+            type="search"
+            id="manualFilter"
+            placeholder="Buscar no manual: carência, reembolso, tártaro…"
+            aria-label="Buscar no manual"
+            autocomplete="off"
+          />
+        </div>
+        <div class="manual-actions">
+          <button
+            type="button"
+            class="manual-btn manual-btn--compliance"
+            id="complianceShortcut"
+          >
+            Pode orientar × não prometer
+          </button>
+          <button type="button" class="manual-btn" id="expandAll">
+            Expandir tudo
+          </button>
+          <button type="button" class="manual-btn" id="collapseAll">
+            Recolher tudo
+          </button>
+        </div>
+      </div>
+      <p class="manual-noresults" id="noResults" role="status" hidden>
+        Nenhum resultado para o termo buscado.
+      </p>
+
+      <!-- ===== ACORDEÃO EM DOIS NÍVEIS (preenchido pelo script.js, conteúdo movido sem alteração) ===== -->
+      <div class="accordion" id="accordion"></div>
+
+      <!-- ====================== SLIDE 2 · OBJETIVO ========================== -->
+      <section id="slide-02-objetivo" class="slide">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Para que este material existe</h2>
+          <p class="slide__subtitle">Vender com clareza e responsabilidade</p>
+        </div>
+        <p class="slide__lead reveal">
+          Apoiar a oferta dos Planos Pet Itaú, reduzir dúvidas na venda, evitar
+          promessas indevidas e facilitar uma conversa simples e segura com o
+          cliente.
+          <strong>Este material não substitui o regulamento do plano.</strong>
+        </p>
+        <div class="grid grid--3 stagger">
+          <article class="card reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-cart"></use></svg
+            ></span>
+            <h3>Comercial</h3>
+            <p>Como ofertar e explicar o produto.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-route"></use></svg
+            ></span>
+            <h3>Operacional</h3>
+            <p>Contratação, carência, uso, reembolso e renovação.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-shield"></use></svg
+            ></span>
+            <h3>Compliance</h3>
+            <p>O que orientar e o que não prometer.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ====================== SLIDE 3 · JORNADA ========================== -->
+      <section id="slide-03-jornada" class="slide slide--alt">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">
+            A jornada do cliente, orientada pelo consultor
+          </h2>
+          <p class="slide__subtitle">O fio condutor do material</p>
+        </div>
+        <p class="slide__lead reveal">
+          Em cada etapa, o que o cliente vive e o que o consultor orienta.
+        </p>
+        <ol class="timeline stagger">
+          <li class="timeline__item reveal">
+            <span class="timeline__num">1</span>
+            <div>
+              <h3>Descoberta</h3>
+              <p>
+                <em>Cliente:</em> tenho um pet e quero protegê-lo.<br /><em
+                  >Consultor:</em
+                >
+                apresenta os dois modelos e a escada de planos.
+              </p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__num">2</span>
+            <div>
+              <h3>Contratação</h3>
+              <p>
+                <em>Cliente:</em> como contrato?<br /><em>Consultor:</em>
+                orienta a rota no SuperApp e o segmento.
+              </p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__num">3</span>
+            <div>
+              <h3>Vigência</h3>
+              <p>
+                <em>Cliente:</em> quando começa a valer?<br /><em
+                  >Consultor:</em
+                >
+                explica que a vigência começa no pagamento da 1ª mensalidade.
+              </p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__num">4</span>
+            <div>
+              <h3>Carência</h3>
+              <p>
+                <em>Cliente:</em> já posso usar tudo?<br /><em>Consultor:</em>
+                explica a carência por serviço, sem prometer isenção.
+              </p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__num">5</span>
+            <div>
+              <h3>Utilização</h3>
+              <p>
+                <em>Cliente:</em> como uso?<br /><em>Consultor:</em> reembolso
+                no A.Pet, rede credenciada com coparticipação na Petlove.
+              </p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__num">6</span>
+            <div>
+              <h3>Reembolso ou rede</h3>
+              <p>
+                <em>Cliente:</em> e o pagamento?<br /><em>Consultor:</em>
+                documentos do reembolso (A.Pet) ou coparticipação na rede
+                (Petlove).
+              </p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__num">7</span>
+            <div>
+              <h3>Renovação</h3>
+              <p>
+                <em>Cliente:</em> renova sozinho?<br /><em>Consultor:</em>
+                renovação automática e reajuste pelo IPCA na data de
+                aniversário.
+              </p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__num">8</span>
+            <div>
+              <h3>Pós-venda</h3>
+              <p>
+                <em>Cliente:</em> e depois?<br /><em>Consultor:</em> mantém a
+                relação e direciona ao regulamento em caso de dúvida.
+              </p>
+            </div>
+          </li>
+        </ol>
+        <div class="protect-strip reveal">
+          <svg class="icon" aria-hidden="true">
+            <use href="#ic-shield"></use>
+          </svg>
+          <p>
+            <strong>Faixa de proteção:</strong> nunca prometer rede credenciada
+            no A.Pet, reembolso automático, isenção de carência ou cobertura
+            fora das regras.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================== SLIDE 4 · PRODUTO ========================== -->
+      <section id="slide-04-produto" class="slide">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">O que é o Plano Pet Itaú</h2>
+          <p class="slide__subtitle">
+            Cinco planos, dois parceiros, dois modelos
+          </p>
+        </div>
+        <p class="slide__lead reveal">
+          Produto para clientes com pet que querem manter a saúde em dia por um
+          preço justo. Prateleira de <strong>5 planos</strong>, com
+          <strong>2 parceiros</strong> (Petlove e A.Pet) e
+          <strong>2 modelos de atendimento</strong> à escolha do cliente, para
+          cães e gatos.
+        </p>
+        <div class="media-slot media-slot--wide reveal">
+          <img
+            class="media-img"
+            data-img="produtoJuntos"
+            alt="Gato e cachorro juntos"
+          />
+          <div class="img-placeholder" aria-hidden="true">
+            <svg class="icon icon--lg"><use href="#ic-paw"></use></svg>
+          </div>
+        </div>
+        <div class="grid grid--2 stagger">
+          <article class="card card--model card--model-petlove reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-network"></use></svg
+            ></span>
+            <h3>Petlove Saúde</h3>
+            <p class="card__tag">Rede credenciada · com coparticipação</p>
+            <p>
+              O cliente usa as clínicas credenciadas do plano e paga
+              coparticipação por serviço. A cobertura segue o que consta nas
+              Tabelas de Procedimentos e nas Condições Gerais.
+            </p>
+          </article>
+          <article class="card card--model card--model-apet reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-paw"></use></svg
+            ></span>
+            <h3>A.Pet (Amigoo)</h3>
+            <p class="card__tag">Reembolso · sem coparticipação</p>
+            <p>
+              O cliente escolhe a clínica de preferência, paga o atendimento e
+              solicita reembolso conforme o plano, limites, carências e regras
+              do regulamento.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================== SLIDE 5 · QUEM PODE CONTRATAR ================== -->
+      <section id="slide-05-quem-contrata" class="slide slide--alt">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Quem pode contratar e onde ofertar</h2>
+          <p class="slide__subtitle">Segmentos, canais e incentivo</p>
+        </div>
+        <p class="slide__lead reveal">
+          Clientes correntistas dos segmentos Itaú. A disponibilidade varia por
+          segmento e canal.
+        </p>
+
+        <div class="grid grid--3 stagger" id="segmentos-grid">
+          <article class="card card--segment reveal" data-segment="agencias">
+            <span class="chip chip--sigla" data-bind="sigla"></span>
+            <h3 data-bind="segment-nome"></h3>
+            <p class="card__tag">Planos do segmento</p>
+            <ul class="plan-pills" data-bind="segment-planos"></ul>
+            <p class="muted" data-bind="segment-nota"></p>
+          </article>
+          <article class="card card--segment reveal" data-segment="uniclass">
+            <span class="chip chip--sigla" data-bind="sigla"></span>
+            <h3 data-bind="segment-nome"></h3>
+            <p class="card__tag">Planos do segmento</p>
+            <ul class="plan-pills" data-bind="segment-planos"></ul>
+            <p class="muted" data-bind="segment-nota"></p>
+          </article>
+          <article
+            class="card card--segment reveal"
+            data-segment="personnalite"
+          >
+            <span class="chip chip--sigla" data-bind="sigla"></span>
+            <h3 data-bind="segment-nome"></h3>
+            <p class="card__tag">Planos do segmento</p>
+            <ul class="plan-pills" data-bind="segment-planos"></ul>
+            <p class="muted" data-bind="segment-nota"></p>
+          </article>
+        </div>
+
+        <div class="grid grid--2 grid--gap-top grid--equal">
+          <article class="card reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-phone"></use>
+              </svg>
+              Canais de oferta
+            </h3>
+            <ul class="checklist">
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                Mobile (SuperApp)
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                Plataforma 360, 360i
+              </li>
+            </ul>
+          </article>
+          <article class="card card--incentivo reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-star"></use>
+              </svg>
+              Plano de incentivo
+            </h3>
+            <p class="card__tag">
+              Informação comercial interna, não contratual
+            </p>
+            <ul class="checklist">
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Contratos gerados na <strong>Plataforma 360 e 360i</strong>, Petlove ou A.Pet, contam automaticamente para o plano de incentivo, porque os dois modelos já estão na plataforma.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Contratos gerados pelo <strong>Mobile (SuperApp)</strong>, Petlove ou A.Pet, precisam ser registrados no <strong>Dynamics</strong> para contar no plano de incentivo, para o consultor e o gerente.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================== SLIDE 6 · COMO CONTRATAR ====================== -->
+      <section id="slide-06-como-contratar" class="slide">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Como contratar</h2>
+          <p class="slide__subtitle">SuperApp, do menu ao Plano Pet</p>
+        </div>
+        <div class="grid grid--2 grid--center">
+          <div class="reveal">
+            <p class="slide__lead">
+              A contratação acontece no <strong>SuperApp do Itaú</strong>.
+              Oriente o cliente a seguir a rota:
+            </p>
+            <ol class="route-steps">
+              <li><span class="route-steps__n">1</span> Menu</li>
+              <li><span class="route-steps__n">2</span> Seguros e planos</li>
+              <li><span class="route-steps__n">3</span> Vida, Pet e Odonto</li>
+              <li>
+                <span class="route-steps__n">4</span> Plano Pet — aba
+                <strong>Pet</strong> selecionada, botão
+                <strong>Conhecer</strong>
+              </li>
+            </ol>
+          </div>
+          <figure class="phone-mock reveal">
+            <div class="phone-mock__frame">
+              <div class="phone-mock__screen">
+                <span class="phone-mock__crumb">Menu › Seguros e planos</span>
+                <span class="phone-mock__crumb">Vida, Pet e Odonto</span>
+                <div class="phone-mock__tabs">
+                  <span>Vida</span><span class="is-active">Pet</span
+                  ><span>Odonto</span>
+                </div>
+                <div class="phone-mock__hero">
+                  <svg class="icon icon--lg" aria-hidden="true">
+                    <use href="#ic-paw"></use>
+                  </svg>
+                </div>
+                <button class="phone-mock__btn" type="button" tabindex="-1">
+                  Conhecer
+                </button>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================== SLIDE 7 · ESCADA DE PLANOS ==================== -->
+      <section id="slide-07-escada-planos" class="slide slide--alt">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Cinco planos, uma escada de proteção</h2>
+          <p class="slide__subtitle">Mesmos valores nos dois modelos</p>
+        </div>
+        <p class="slide__lead reveal">
+          Os planos sobem em amplitude de cobertura. O preço é igual nos dois
+          modelos. O que muda é a forma de uso:
+          <strong>reembolso no A.Pet</strong>,
+          <strong>rede credenciada com coparticipação na Petlove</strong>.
+        </p>
+        <ol class="stairs stagger" id="stairs">
+          <li class="stairs__step reveal" data-plan="bronze">
+            <div class="stairs__label">
+              <strong data-bind="plan-nome"></strong><span>Entrada</span>
+            </div>
+            <div class="stairs__price">
+              <span
+                class="price"
+                data-count
+                data-format="brl"
+                data-bind="plan-preco"
+              ></span
+              ><span class="price__per">/mês</span>
+            </div>
+          </li>
+          <li class="stairs__step reveal" data-plan="prata">
+            <div class="stairs__label">
+              <strong data-bind="plan-nome"></strong><span>Equilíbrio</span>
+            </div>
+            <div class="stairs__price">
+              <span
+                class="price"
+                data-count
+                data-format="brl"
+                data-bind="plan-preco"
+              ></span
+              ><span class="price__per">/mês</span>
+            </div>
+          </li>
+          <li class="stairs__step reveal" data-plan="ouro">
+            <div class="stairs__label">
+              <strong data-bind="plan-nome"></strong><span>Rotina</span>
+            </div>
+            <div class="stairs__price">
+              <span
+                class="price"
+                data-count
+                data-format="brl"
+                data-bind="plan-preco"
+              ></span
+              ><span class="price__per">/mês</span>
+            </div>
+          </li>
+          <li class="stairs__step reveal" data-plan="platina">
+            <div class="stairs__label">
+              <strong data-bind="plan-nome"></strong><span>Robusto</span>
+            </div>
+            <div class="stairs__price">
+              <span
+                class="price"
+                data-count
+                data-format="brl"
+                data-bind="plan-preco"
+              ></span
+              ><span class="price__per">/mês</span>
+            </div>
+          </li>
+          <li class="stairs__step stairs__step--top reveal" data-plan="titanio">
+            <span class="badge-top">Mais completo</span>
+            <div class="stairs__label">
+              <strong data-bind="plan-nome"></strong
+              ><span>Máxima cobertura</span>
+            </div>
+            <div class="stairs__price">
+              <span
+                class="price"
+                data-count
+                data-format="brl"
+                data-bind="plan-preco"
+              ></span
+              ><span class="price__per">/mês</span>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ================== SLIDE 8 · COBERTURAS PETLOVE ================= -->
+      <section id="slide-08-coberturas" class="slide slide--petlove">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">
+            Prateleira Petlove: o que cada plano cobre
+          </h2>
+          <p class="slide__subtitle">
+            Planos com rede credenciada e coparticipação. Em parceria com
+            Petlove
+          </p>
+          <p class="shelf-note">Conforme a tabela oficial de cada plano</p>
+        </div>
+        <p class="slide__lead reveal">
+          Cada plano herda o anterior e adiciona coberturas. Os detalhes de
+          coparticipação, carência e limites estão na Tabela de Procedimentos
+          oficial de cada plano.
+        </p>
+        <div class="grid grid--5 stagger" id="coberturas-grid"></div>
+      </section>
+
+      <!-- ================== SLIDE 8B · COBERTURAS A.PET ================== -->
+      <section id="slide-08b-coberturas-apet" class="slide slide--apet">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Prateleira A.Pet: o que cada plano cobre</h2>
+          <p class="slide__subtitle">
+            Planos com reembolso e sem coparticipação. Em parceria com A.Pet
+            (Amigoo)
+          </p>
+          <p class="shelf-note">Conforme a tabela oficial de cada plano</p>
+        </div>
+        <p class="slide__lead reveal">
+          Cada plano herda o anterior e adiciona coberturas. Os detalhes de
+          coparticipação, carência e limites estão na Tabela de Procedimentos
+          oficial de cada plano.
+        </p>
+        <div class="grid grid--5 stagger" id="coberturas-grid-apet"></div>
+      </section>
+
+      <!-- ================== SLIDE 9 · MULTIPET =========================== -->
+      <section id="slide-09-multipet" class="slide slide--alt">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Desconto a partir do segundo pet</h2>
+          <p class="slide__subtitle">Benefício no ato da contratação</p>
+        </div>
+        <p class="slide__lead reveal">
+          <strong
+            ><span data-count data-format="int" data-value="10"></span>% de
+            desconto</strong
+          >
+          na mensalidade a partir do segundo pet contratado no mesmo ato e na
+          mesma assinatura. Vale só no ato, não retroage. Vale nos dois modelos.
+        </p>
+        <div class="grid grid--3 stagger" id="multipet-grid"></div>
+        <div class="badge badge--amber reveal" role="note">
+          <svg class="icon icon--inline" aria-hidden="true">
+            <use href="#ic-alert"></use>
+          </svg>
+          <span
+            >Se o cliente adicionar outro pet depois, esse novo pet
+            <strong>não</strong> recebe o desconto.</span
+          >
+        </div>
+        <p class="source-note reveal">
+          Fonte: informação interna confirmada (argumento de venda). Não é regra
+          extraída dos PDFs.
+        </p>
+      </section>
+
+      <!-- ================== SLIDE 10 · COMPARATIVO ======================= -->
+      <section id="slide-10-comparativo" class="slide">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">
+            A.Pet x Petlove, dois modelos, uma escolha do cliente
+          </h2>
+          <p class="slide__subtitle">O comparativo que conduz a recomendação</p>
+        </div>
+        <p class="slide__lead reveal">
+          O modelo ideal depende do perfil do cliente: liberdade de escolher a
+          clínica (A.Pet, por reembolso) ou praticidade da rede credenciada
+          (Petlove, com coparticipação).
+        </p>
+        <div class="model-legend reveal" aria-hidden="true">
+          <span><i class="dot dot--apet"></i> A.Pet · Reembolso</span>
+          <span
+            ><i class="dot dot--petlove"></i> Petlove · Rede credenciada</span
+          >
+        </div>
+        <div class="compare reveal">
+          <table class="compare__table">
+            <thead>
+              <tr>
+                <th scope="col">Característica</th>
+                <th scope="col" class="th--apet">A.Pet (Amigoo)</th>
+                <th scope="col" class="th--petlove">Petlove Saúde</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <svg class="icon row-ic" aria-hidden="true">
+                    <use href="#ic-scale"></use></svg
+                  >Modelo
+                </th>
+                <td data-label="A.Pet">Reembolso</td>
+                <td data-label="Petlove">Rede credenciada</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <svg class="icon row-ic" aria-hidden="true">
+                    <use href="#ic-piggy"></use></svg
+                  >Coparticipação
+                </th>
+                <td data-label="A.Pet">Sem coparticipação</td>
+                <td data-label="Petlove">Com coparticipação</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <svg class="icon row-ic" aria-hidden="true">
+                    <use href="#ic-clinic"></use></svg
+                  >Escolha da clínica
+                </th>
+                <td data-label="A.Pet">Clínica de preferência</td>
+                <td data-label="Petlove">Clínicas credenciadas do plano</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <svg class="icon row-ic" aria-hidden="true">
+                    <use href="#ic-paw"></use></svg
+                  >Idade máxima do pet
+                </th>
+                <td data-label="A.Pet">9 anos e 11 meses</td>
+                <td data-label="Petlove">Sem idade máxima</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <svg class="icon row-ic" aria-hidden="true">
+                    <use href="#ic-calendar"></use></svg
+                  >Início da carência
+                </th>
+                <td data-label="A.Pet">
+                  Vigência no 1º pagamento; carências variam por serviço (24h a
+                  30 dias; pré-existência 12 meses; demais conforme o
+                  certificado)
+                </td>
+                <td data-label="Petlove">
+                  A partir do 1º pagamento; microchipagem obrigatória (ver slide
+                  de carência)
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <svg class="icon row-ic" aria-hidden="true">
+                    <use href="#ic-chip"></use></svg
+                  >Microchipagem
+                </th>
+                <td data-label="A.Pet">Não citada</td>
+                <td data-label="Petlove">Obrigatória para uso</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <svg class="icon row-ic" aria-hidden="true">
+                    <use href="#ic-network"></use></svg
+                  >Cobertura quando falta rede
+                </th>
+                <td data-label="A.Pet">Não se aplica</td>
+                <td data-label="Petlove">Restituição, conforme regras</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <svg class="icon row-ic" aria-hidden="true">
+                    <use href="#ic-tag"></use></svg
+                  >Preço por plano
+                </th>
+                <td data-label="A.Pet">Igual nos dois</td>
+                <td data-label="Petlove">Igual nos dois</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================== SLIDE 11 · A.PET FUNCIONA ==================== -->
+      <section id="slide-11-apet-funciona" class="slide slide--alt slide--apet">
+        <span class="model-chip model-chip--apet reveal"
+          ><svg class="icon" aria-hidden="true"><use href="#ic-paw"></use></svg>
+          A.Pet · Reembolso</span
+        >
+        <div class="slide__head reveal">
+          <h2 class="slide__title">A.Pet, reembolso sem coparticipação</h2>
+          <p class="slide__subtitle">Como o modelo funciona</p>
+        </div>
+        <p class="slide__lead reveal">
+          O cliente escolhe a clínica, realiza o atendimento, paga o prestador e
+          solicita reembolso conforme o plano, limites, carências e regras do
+          regulamento.
+        </p>
+        <div class="grid grid--main-aside">
+          <div>
+            <ol class="flow stagger">
+              <li class="flow__step reveal">
+                <span class="flow__n">1</span>
+                <div>
+                  <h3>Escolhe a clínica</h3>
+                  <p>Clínica de preferência do cliente.</p>
+                </div>
+              </li>
+              <li class="flow__step reveal">
+                <span class="flow__n">2</span>
+                <div>
+                  <h3>Realiza o atendimento</h3>
+                  <p>Conforme a necessidade do pet.</p>
+                </div>
+              </li>
+              <li class="flow__step reveal">
+                <span class="flow__n">3</span>
+                <div>
+                  <h3>Paga o prestador</h3>
+                  <p>O cliente paga a clínica no atendimento.</p>
+                </div>
+              </li>
+              <li class="flow__step reveal">
+                <span class="flow__n">4</span>
+                <div>
+                  <h3>Solicita reembolso</h3>
+                  <p>Dentro dos limites, carências e regras do plano.</p>
+                </div>
+              </li>
+            </ol>
+            <article class="card card--diferenciais reveal">
+              <h3>
+                <svg class="icon icon--inline" aria-hidden="true">
+                  <use href="#ic-heart"></use>
+                </svg>
+                Conveniências da A.Pet
+              </h3>
+              <ul class="checklist" id="apet-conv"></ul>
+              <p class="muted">
+                Assistências do A.Pet, conforme o certificado de cada plano
+                (item 3.2.4 das condições gerais). Nem todos os planos possuem
+                todas as assistências.
+              </p>
+            </article>
+          </div>
+          <aside class="aside-box reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-alert"></use>
+              </svg>
+              Regras estruturais
+            </h3>
+            <ul class="aside-box__list" id="apet-regras"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ================== SLIDE 12 · A.PET CHECKLIST =================== -->
+      <section id="slide-12-apet-reembolso-checklist" class="slide slide--apet">
+        <span class="model-chip model-chip--apet reveal"
+          ><svg class="icon" aria-hidden="true"><use href="#ic-paw"></use></svg>
+          A.Pet · Reembolso</span
+        >
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Checklist de reembolso</h2>
+          <p class="slide__subtitle">O que o cliente precisa apresentar</p>
+        </div>
+        <p class="slide__lead reveal">
+          Reembolso depende de documentação correta.
+        </p>
+        <div class="grid grid--3 stagger">
+          <article class="card card--num reveal">
+            <span class="card__num">1</span
+            ><span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-invoice"></use></svg
+            ></span>
+            <h3>Nota fiscal de empresa (CNPJ)</h3>
+            <p>Emitida no <strong>CPF do titular</strong> do plano.</p>
+          </article>
+          <article class="card card--num reveal">
+            <span class="card__num">2</span
+            ><span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-doc"></use></svg
+            ></span>
+            <h3>Documentação veterinária</h3>
+            <p>Quando aplicável ao atendimento.</p>
+          </article>
+          <article class="card card--num reveal">
+            <span class="card__num">3</span
+            ><span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-piggy"></use></svg
+            ></span>
+            <h3>Dados bancários do titular</h3>
+            <p>Conta corrente ou poupança do titular do plano.</p>
+          </article>
+        </div>
+        <div class="badge badge--amber reveal" role="note">
+          <svg class="icon icon--inline" aria-hidden="true">
+            <use href="#ic-alert"></use>
+          </svg>
+          <span
+            >Não são aceitos: recibos, notas de pessoa física, contas de
+            terceiros, conta fácil ou ordem de pagamento.</span
+          >
+        </div>
+        <div class="compliance-pair">
+          <div class="badge badge--green reveal">
+            <svg class="icon icon--inline" aria-hidden="true">
+              <use href="#ic-check"></use></svg
+            ><span
+              ><strong>Pode orientar:</strong> explicar os três documentos
+              exigidos.</span
+            >
+          </div>
+          <div class="badge badge--red reveal">
+            <svg class="icon icon--inline" aria-hidden="true">
+              <use href="#ic-alert"></use></svg
+            ><span
+              ><strong>Não prometer:</strong> reembolso integral de qualquer
+              valor.</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 13 · A.PET CARÊNCIA/PRÉ/EXCLUSÕES ============ -->
+      <section
+        id="slide-13-apet-carencia-preexistencia-exclusoes"
+        class="slide slide--alt slide--apet"
+      >
+        <span class="model-chip model-chip--apet reveal"
+          ><svg class="icon" aria-hidden="true"><use href="#ic-paw"></use></svg>
+          A.Pet · Reembolso</span
+        >
+        <div class="slide__head reveal">
+          <h2 class="slide__title">A.Pet, o que precisa ficar claro</h2>
+          <p class="slide__subtitle">Carência, pré-existência e exclusões</p>
+        </div>
+        <p class="slide__lead reveal">
+          O A.Pet tem regras de cobertura que o consultor deve explicar antes da
+          contratação.
+        </p>
+        <div class="grid grid--3 stagger">
+          <article class="card reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-heart"></use></svg
+            ></span>
+            <h3>Pré-existência</h3>
+            <p>
+              Não impede a contratação, mas tem
+              <strong>carência de 12 meses</strong> para utilização. Crônicas e
+              congênitas são excluídas.
+            </p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-calendar"></use></svg
+            ></span>
+            <h3>Carência</h3>
+            <p>
+              A vigência começa com o pagamento da 1ª mensalidade. Telemedicina
+              em <strong>24h</strong>; consultas, emergência, comercial e
+              domiciliar em <strong>30 dias</strong>; pré-existência em
+              <strong>12 meses</strong>; demais conforme o certificado. Eventos
+              na carência não têm cobertura.
+            </p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-doc"></use></svg
+            ></span>
+            <h3>Exclusões</h3>
+            <p>
+              Condições gerais A.Pet, cláusula 7. Veja a lista completa abaixo.
+            </p>
+          </article>
+        </div>
+
+        <div class="carencia-block reveal">
+          <h3 class="carencia-block__title">Carência por procedimento na A.Pet</h3>
+          <div class="carencia-grid stagger" id="carencia-grid-apet"></div>
+          <p class="source-note">
+            A anestesia não tem carência própria, acompanha o procedimento
+            principal. A disponibilidade por plano consta no certificado, item
+            3.2.4.
+          </p>
+        </div>
+
+        <div class="badge badge--amber reveal" role="note">
+          <svg class="icon icon--inline" aria-hidden="true">
+            <use href="#ic-alert"></use>
+          </svg>
+          <span
+            >A A.Pet não oferece pulo de carência. O pulo de carência é
+            exclusivo da Petlove.</span
+          >
+        </div>
+
+        <div class="cover-block reveal">
+          <h3 class="cover-block__title">O que a A.Pet cobre</h3>
+          <ul class="cover-list" id="apet-cobertura-lista"></ul>
+          <p class="cover-block__note">
+            Disponibilidade por plano consta no certificado (item 3.2.4).
+          </p>
+        </div>
+
+        <details class="collapsible reveal">
+          <summary>Exclusões A.Pet — lista completa (cláusula 7)</summary>
+          <ul class="excl-list" id="apet-exclusoes"></ul>
+        </details>
+
+        <div class="note-block reveal">
+          <p>
+            <strong>Nota sobre odontológico:</strong> a limpeza de tártaro
+            (tartarectomia) é coberta no A.Pet como serviço de assistência, com
+            <strong>carência de 180 dias</strong>, sem incluir exames nem
+            anestesia. Isso não contradiz a exclusão: os demais tratamentos
+            odontológicos e os acionamentos decorrentes de problema odontológico
+            seguem excluídos.
+          </p>
+          <p>
+            <strong>Disponibilidade (com fonte):</strong> conforme o item 3.2.4
+            das condições gerais A.Pet, nem todos os planos possuem todas as
+            assistências. A disponibilidade da tartarectomia por plano consta no
+            certificado (resumo do contrato).
+          </p>
+        </div>
+
+        <div class="compliance-pair">
+          <div class="badge badge--green reveal">
+            <svg class="icon icon--inline" aria-hidden="true">
+              <use href="#ic-check"></use></svg
+            ><span
+              ><strong>Pode orientar:</strong> pré-existência não impede,
+              carência de 12 meses, consultar o regulamento.</span
+            >
+          </div>
+          <div class="badge badge--red reveal">
+            <svg class="icon icon--inline" aria-hidden="true">
+              <use href="#ic-alert"></use></svg
+            ><span
+              ><strong>Não prometer:</strong> cobertura para crônicas e
+              congênitas, uso imediato sem cumprir carência, cobertura
+              odontológica ampla além da limpeza de tártaro.</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== SLIDE 14 · PETLOVE FUNCIONA ================== -->
+      <section id="slide-14-petlove-funciona" class="slide slide--petlove">
+        <span class="model-chip model-chip--petlove reveal"
+          ><svg class="icon" aria-hidden="true">
+            <use href="#ic-network"></use>
+          </svg>
+          Petlove · Rede credenciada</span
+        >
+        <div class="slide__head reveal">
+          <h2 class="slide__title">
+            Petlove, rede credenciada com coparticipação
+          </h2>
+          <p class="slide__subtitle">Como o modelo funciona</p>
+        </div>
+        <p class="slide__lead reveal">
+          O cliente busca atendimento na rede credenciada, usa os serviços
+          cobertos e paga coparticipação. Quando não há rede no município ou na
+          região metropolitana, a Petlove pode cobrir por restituição, conforme
+          regras e limites da tabela.
+        </p>
+        <div class="grid grid--main-aside">
+          <div>
+            <ol class="flow stagger">
+              <li class="flow__step reveal">
+                <span class="flow__n">1</span>
+                <div>
+                  <h3>Escolhe a clínica credenciada</h3>
+                  <p>Dentro da rede do plano.</p>
+                </div>
+              </li>
+              <li class="flow__step reveal">
+                <span class="flow__n">2</span>
+                <div>
+                  <h3>Agenda o atendimento</h3>
+                  <p>Conforme disponibilidade da rede.</p>
+                </div>
+              </li>
+              <li class="flow__step reveal">
+                <span class="flow__n">3</span>
+                <div>
+                  <h3>Atende o pet</h3>
+                  <p>Serviços cobertos pelo plano.</p>
+                </div>
+              </li>
+              <li class="flow__step reveal">
+                <span class="flow__n">4</span>
+                <div>
+                  <h3>Paga coparticipação</h3>
+                  <p>Varia por serviço e por prestador.</p>
+                </div>
+              </li>
+            </ol>
+            <div class="kpi-row reveal">
+              <div class="kpi">
+                <span class="kpi__num"
+                  ><span
+                    data-count
+                    data-format="x"
+                    data-value="200"
+                  ></span></span
+                ><span class="kpi__label"
+                  >limite anual: até 200 vezes o valor mensal do plano</span
+                >
+              </div>
+            </div>
+            <p class="muted reveal">
+              Cobertura nacional conforme a rede e a região de abrangência,
+              sempre dentro das tabelas, regras e do modelo contratado. Sem rede
+              no município ou na região metropolitana, cobertura por restituição
+              (documentos no nome do responsável financeiro, em até 30 dias).
+            </p>
+          </div>
+          <aside class="aside-box reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-cart"></use>
+              </svg>
+              Diferenciais da Petlove
+            </h3>
+            <p class="card__tag">Ecossistema Petlove</p>
+            <ul class="aside-box__list" id="petlove-conv"></ul>
+            <div class="badge badge--red badge--soft" role="note">
+              <span
+                >Benefícios eventuais, sujeitos a alteração.
+                <strong>Não prometer como cobertura garantida.</strong></span
+              >
+            </div>
+          </aside>
+        </div>
+        <article class="card card--petlove-soft reveal">
+          <h3>
+            <svg class="icon icon--inline" aria-hidden="true">
+              <use href="#ic-network"></use>
+            </svg>
+            Diferenciais de serviço
+          </h3>
+          <ul class="checklist" id="petlove-servico"></ul>
+        </article>
+      </section>
+
+      <!-- ============ SLIDE 15 · PETLOVE CARÊNCIA/MICROCHIP ============= -->
+      <section
+        id="slide-15-petlove-carencia-microchip"
+        class="slide slide--alt slide--petlove"
+      >
+        <span class="model-chip model-chip--petlove reveal"
+          ><svg class="icon" aria-hidden="true">
+            <use href="#ic-network"></use>
+          </svg>
+          Petlove · Rede credenciada</span
+        >
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Carência e microchipagem</h2>
+          <p class="slide__subtitle">
+            Carência por procedimento e marco de início
+          </p>
+        </div>
+        <p class="slide__lead reveal">
+          Na Petlove, a carência varia por procedimento e o prazo de cada grupo
+          é o mesmo nos cinco planos da Petlove; o que muda entre os planos é o
+          que está coberto. A <strong>microchipagem é obrigatória</strong> para
+          usar o plano.
+        </p>
+        <div class="carencia-grid stagger" id="carencia-grid"></div>
+        <div class="badge badge--amber badge--pulse reveal" role="note">
+          <svg class="icon icon--inline" aria-hidden="true">
+            <use href="#ic-refresh"></use>
+          </svg>
+          <span
+            ><strong>Atualização · marco de início:</strong> a carência conta a
+            partir da confirmação do <strong>1º pagamento</strong>, regra
+            confirmada com a Petlove. A microchipagem deixa de ser o marco, mas
+            segue obrigatória para uso. O PDF vigente ainda cita a
+            microchipagem; o texto da condição geral será atualizado
+            <strong>até o fim de julho de 2026</strong>. Orientar pela regra
+            confirmada.</span
+          >
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 16 · PETLOVE PULO DE CARÊNCIA =============== -->
+      <section id="slide-16-petlove-pulo-carencia" class="slide slide--petlove">
+        <span class="model-chip model-chip--petlove reveal"
+          ><svg class="icon" aria-hidden="true">
+            <use href="#ic-network"></use>
+          </svg>
+          Petlove · Rede credenciada</span
+        >
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Pulo de carência</h2>
+          <p class="slide__subtitle">Antecipar coberturas, com regras</p>
+        </div>
+        <p class="slide__lead reveal">
+          O pulo de carência é uma funcionalidade da Petlove que permite usar
+          determinadas coberturas imediatamente, sem aguardar o tempo de
+          carência padrão do plano.
+        </p>
+        <div class="grid grid--main-aside">
+          <figure class="phone-mock phone-mock--steps reveal">
+            <div class="phone-mock__frame">
+              <div class="phone-mock__screen">
+                <span class="phone-mock__crumb"
+                  >App Petlove › área logada › Pulo de carência</span
+                >
+                <ol class="app-steps">
+                  <li class="app-steps__item">
+                    <span class="app-steps__n">1</span>
+                    <div>
+                      <strong>Contrata no App Petlove</strong>
+                      <p>Na área logada, após a ativação do plano.</p>
+                    </div>
+                  </li>
+                  <li class="app-steps__item">
+                    <span class="app-steps__n">2</span>
+                    <div>
+                      <strong>Paga o valor adicional</strong>
+                      <p>
+                        Valor adicional à mensalidade, que varia conforme o
+                        plano e a cobertura desejada.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="app-steps__item">
+                    <span class="app-steps__n">3</span>
+                    <div>
+                      <strong>Usa a cobertura antecipada</strong>
+                      <p>
+                        Usa determinadas coberturas imediatamente, sem aguardar
+                        o tempo de carência padrão.
+                      </p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </figure>
+          <aside class="aside-box reveal">
+            <p>
+              <strong>Microchipagem obrigatória.</strong> Nem todas as
+              coberturas são elegíveis; o cliente verifica no app.
+            </p>
+          </aside>
+        </div>
+        <div class="compliance-pair">
+          <div class="badge badge--green reveal">
+            <svg class="icon icon--inline" aria-hidden="true">
+              <use href="#ic-check"></use></svg
+            ><span
+              ><strong>Pode falar:</strong> contratado no App Petlove, valor
+              adicional, usa a cobertura antecipada.</span
+            >
+          </div>
+          <div class="badge badge--red reveal">
+            <svg class="icon icon--inline" aria-hidden="true">
+              <use href="#ic-alert"></use></svg
+            ><span
+              ><strong>Não prometer:</strong> liberação integral, aprovação
+              automática, antecipação fora das regras.</span
+            >
+          </div>
+        </div>
+        <p class="source-note reveal">
+          Fonte: FAQ Itaú Personnalité, item 6 das Dúvidas Frequentes.
+        </p>
+      </section>
+
+      <!-- ============ SLIDE 17 · PETLOVE COBERTURA ===================== -->
+      <section
+        id="slide-17-petlove-cobertura"
+        class="slide slide--alt slide--petlove"
+      >
+        <span class="model-chip model-chip--petlove reveal"
+          ><svg class="icon" aria-hidden="true">
+            <use href="#ic-network"></use>
+          </svg>
+          Petlove · Rede credenciada</span
+        >
+        <div class="slide__head reveal">
+          <h2 class="slide__title">
+            Petlove: cobertura pela Tabela de Procedimentos
+          </h2>
+          <p class="slide__subtitle">
+            A cobertura é definida pela Tabela de Procedimentos e Condições
+            Gerais
+          </p>
+        </div>
+        <article class="card card--highlight reveal">
+          <span class="icon-circle"
+            ><svg class="icon" aria-hidden="true">
+              <use href="#ic-doc"></use></svg
+          ></span>
+          <p>
+            Na Petlove, a lógica é por <strong>inclusão</strong>. É coberto o
+            que consta nas Tabelas de Procedimentos e nas Condições Gerais.
+            <strong>O que não está listado não faz parte da assistência</strong>
+            (itens 1.1 e 16.4). Orientar pelo que está previsto, sem prometer
+            cobertura para procedimentos não listados.
+          </p>
+        </article>
+        <div class="cover-block reveal">
+          <h3 class="cover-block__title">O que a Petlove cobre</h3>
+          <ul class="cover-list" id="petlove-cobertura-lista"></ul>
+          <p class="cover-block__note">
+            Disponibilidade por plano na prateleira (slide 8) e na Tabela de
+            Procedimentos de cada plano.
+          </p>
+        </div>
+        <details class="collapsible collapsible--amber reveal">
+          <summary>Limitações importantes</summary>
+          <ul class="excl-list" id="petlove-limitacoes"></ul>
+        </details>
+      </section>
+
+      <!-- ============ SLIDE 18 · VENDA PROTEGIDA ====================== -->
+      <section id="slide-18-venda-protegida" class="slide">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Pode orientar x não deve prometer</h2>
+          <p class="slide__subtitle">O essencial da conversa segura</p>
+        </div>
+        <div class="grid grid--2">
+          <article class="card card--green reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-check"></use>
+              </svg>
+              Pode orientar
+            </h3>
+            <ul class="checklist checklist--green">
+              <li>A diferença entre A.Pet e Petlove.</li>
+              <li>Planos, valores e segmentos.</li>
+              <li>Carência, limites e documentos.</li>
+              <li>Regras de reembolso (A.Pet) e coparticipação (Petlove).</li>
+              <li>Direcionar o cliente ao regulamento.</li>
+            </ul>
+          </article>
+          <article class="card card--red reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-alert"></use>
+              </svg>
+              Não deve prometer
+            </h3>
+            <ul class="checklist checklist--red">
+              <li>Cobertura ilimitada.</li>
+              <li>Reembolso automático ou imediato.</li>
+              <li>Isenção de carência.</li>
+              <li>Rede credenciada como regra do A.Pet.</li>
+              <li>Uso sem pagamento no momento do atendimento.</li>
+              <li>Atendimento em qualquer clínica na Petlove.</li>
+              <li>Upgrade ou downgrade de plano.</li>
+              <li>Aproveitamento de carências ao trocar de plano.</li>
+              <li>Cobertura para procedimentos não listados.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 19 · SITUAÇÕES DE RISCO ================== -->
+      <section id="slide-19-situacoes-risco" class="slide slide--alt">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Situações de maior risco</h2>
+          <p class="slide__subtitle">Cobertura, carência e reembolso</p>
+        </div>
+        <p class="slide__lead reveal">
+          Onde o consultor mais precisa de cuidado.
+        </p>
+        <div class="grid grid--3 stagger">
+          <article class="card card--risk reveal">
+            <span class="icon-circle icon-circle--alert"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-shield"></use></svg
+            ></span>
+            <h3>Cobertura</h3>
+            <p>
+              Não prometer uso imediato de pré-existência sem cumprir a carência
+              de 12 meses (A.Pet), nem cobertura para crônicas, congênitas,
+              oncológicas e comportamentais. Na Petlove, não prometer
+              procedimento fora da Tabela.
+            </p>
+          </article>
+          <article class="card card--risk reveal">
+            <span class="icon-circle icon-circle--alert"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-calendar"></use></svg
+            ></span>
+            <h3>Carência</h3>
+            <p>
+              Não prometer isenção, uso ilimitado, nem aproveitamento ao trocar
+              de plano.
+            </p>
+          </article>
+          <article class="card card--risk reveal">
+            <span class="icon-circle icon-circle--alert"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-invoice"></use></svg
+            ></span>
+            <h3>Reembolso (A.Pet)</h3>
+            <p>
+              Não prometer quando a NF não está no CPF do titular, é de pessoa
+              física, é recibo, é para conta de terceiros, ou está fora dos
+              limites.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 20 · RENOVAÇÃO =========================== -->
+      <section id="slide-20-renovacao" class="slide">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Renovação e reajuste</h2>
+          <p class="slide__subtitle">As regras seguem o modelo contratado</p>
+        </div>
+        <p class="slide__lead reveal">
+          O contrato tem vigência de <strong>12 meses</strong> e renova
+          automaticamente. As regras de reajuste devem ser explicadas conforme o
+          modelo contratado.
+        </p>
+        <div class="grid grid--2 stagger">
+          <article class="card card--petlove-soft reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-refresh"></use>
+              </svg>
+              Petlove
+            </h3>
+            <ul class="checklist">
+              <li><span>Vigência de 12 meses, renovação automática.</span></li>
+              <li>
+                <span>Reajuste financeiro pelo <strong>IPCA</strong> na data de aniversário.</span>
+              </li>
+              <li>
+                <span>Eventual reajuste técnico, aplicado apenas se o custo médico ultrapassar <strong>50% da receita</strong> correspondente.</span>
+              </li>
+              <li><span>Coparticipação também sujeita a reajuste.</span></li>
+            </ul>
+          </article>
+          <article class="card card--apet-soft reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-refresh"></use>
+              </svg>
+              A.Pet
+            </h3>
+            <ul class="checklist">
+              <li><span>Renovação anual e tácita ao fim da vigência.</span></li>
+              <li><span>Reajuste da mensalidade pelo <strong>IPCA</strong>.</span></li>
+              <li><span>Sem coparticipação.</span></li>
+            </ul>
+          </article>
+        </div>
+        <div class="badge badge--amber reveal" role="note">
+          <svg class="icon icon--inline" aria-hidden="true">
+            <use href="#ic-calendar"></use>
+          </svg>
+          <span
+            >Para <strong>não renovar</strong>, avisar com 30 dias de
+            antecedência.</span
+          >
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 21 · ENCERRAMENTO ======================= -->
+      <section id="slide-21-encerramento" class="slide slide--alt">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">O consultor é peça fundamental</h2>
+          <p class="slide__subtitle">Experiência segura e transparente</p>
+        </div>
+        <p class="slide__lead reveal">
+          Usar o manual como referência contínua, a trilha IOX como
+          aprofundamento e o formulário como canal de contribuição.
+        </p>
+        <div class="media-slot media-slot--banner reveal">
+          <img
+            class="media-img"
+            data-img="encerramento"
+            alt="Pet feliz ao lado do tutor"
+          />
+          <div class="img-placeholder" aria-hidden="true">
+            <svg class="icon icon--lg"><use href="#ic-paw"></use></svg>
+          </div>
+        </div>
+        <div class="grid grid--4 stagger">
+          <article class="card reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-book"></use></svg
+            ></span>
+            <h3>Manual</h3>
+            <p>Referência contínua para a oferta.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-route"></use></svg
+            ></span>
+            <h3>Trilha IOX</h3>
+            <p>Aprofundamento no produto.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-doc"></use></svg
+            ></span>
+            <h3>Feedback</h3>
+            <p>Formulário como canal de contribuição.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-shield"></use></svg
+            ></span>
+            <h3>Atendimento seguro</h3>
+            <p>Venda consultiva, clara e ética.</p>
+          </article>
+        </div>
+        <div class="badge badge--amber badge--pulse reveal" role="note">
+          <svg class="icon icon--inline" aria-hidden="true">
+            <use href="#ic-refresh"></use>
+          </svg>
+          <span
+            ><strong>Atualização Março/2026:</strong> novo marco de início de
+            carência na Petlove (1º pagamento), inclusão do pulo de carência e
+            ajustes operacionais.</span
+          >
+        </div>
+      </section>
+
+      <!-- ============ SLIDE 22 · CAMADA DE PRODUTO ================== -->
+      <section id="slide-22-camada-produto" class="slide">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Features e histórias de usuário</h2>
+          <p class="slide__subtitle">Base para a construção do material</p>
+        </div>
+        <div class="grid grid--2">
+          <article class="card reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-funnel"></use>
+              </svg>
+              Features
+            </h3>
+            <ul class="checklist">
+              <li>Comparador A.Pet x Petlove.</li>
+              <li>Prateleira por segmento.</li>
+              <li>Escada de planos.</li>
+              <li>Checklist de reembolso.</li>
+              <li>Guia de carências por procedimento.</li>
+              <li>Mapa pode x não prometer.</li>
+              <li>Simulador de desconto multipet.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-heart"></use>
+              </svg>
+              Histórias de usuário
+            </h3>
+            <ul class="story-list">
+              <li>
+                Como <strong>consultor</strong>, quero comparar os dois modelos
+                para recomendar o certo.
+              </li>
+              <li>
+                Como <strong>gerente</strong>, quero ver planos por segmento e
+                canal para orientar a equipe.
+              </li>
+              <li>
+                Como <strong>consultor</strong>, quero o checklist de reembolso
+                para evitar recusa.
+              </li>
+              <li>
+                Como <strong>cliente</strong>, quero entender carência e custos
+                antes de contratar.
+              </li>
+              <li>
+                Como <strong>consultor</strong>, quero o mapa do que não
+                prometer.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Plano Pet Itaú · Material consultivo para consultores e gerentes. Não
+        substitui o regulamento do plano. As regras oficiais de cobertura,
+        limites e carências estão nas Condições Gerais.
+      </p>
+      <p class="muted">
+        Fontes: condições gerais (PDFs em Docs/Pet),
+        <code>dados/planos.json</code> e cards comerciais. Conteúdo em
+        alinhamento aparece com selo visível.
+      </p>
+      <a class="to-top" href="#topo" aria-label="Voltar ao topo">↑ Topo</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

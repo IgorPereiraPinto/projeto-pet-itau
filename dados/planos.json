@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "produto": "Plano Pet Itaú",
+    "descricao": "Dados estruturados para o material consultivo. Separa o conteúdo dos planos do layout.",
+    "regra_de_ouro": "Nada inventado. Valores e regras vêm das condições gerais (PDFs) e dos cards comerciais. O que estiver pendente usa o campo validar=true.",
+    "fontes": {
+      "apet_condicoes_gerais": "Docs/Pet/apet-condicoes-gerais.pdf",
+      "petlove_tabelas": "Docs/Pet/petlove-{plano}.pdf",
+      "cards_comerciais": "imagens das paginas comerciais Itau",
+      "atualizacao_itau": "Marco/2026"
+    },
+    "observacao_valores": "Coparticipacoes da Petlove podem variar por prestador. Os valores aqui sao representativos da tabela; a tabela oficial vigente prevalece."
+  },
+
+  "precos_mensais": {
+    "moeda": "BRL",
+    "iguais_nos_dois_modelos": true,
+    "bronze": 19.9,
+    "prata": 34.9,
+    "ouro": 70.0,
+    "platina": 100.0,
+    "titanio": 185.0
+  },
+
+  "desconto_multipet": {
+    "percentual": 10,
+    "regra": "10% na mensalidade a partir do segundo pet contratado no mesmo ato e na mesma assinatura.",
+    "somente_no_ato": true,
+    "retroage": false,
+    "vale_nos_dois_modelos": true,
+    "exemplo": [
+      { "pet": 1, "mensalidade": 100.0 },
+      { "pet": 2, "mensalidade": 90.0 },
+      { "pet": 3, "mensalidade": 90.0 }
+    ],
+    "origem": "informacao interna confirmada (argumento de venda)"
+  },
+
+  "segmentos": {
+    "agencias": {
+      "sigla": "IA",
+      "planos": ["bronze", "prata", "ouro"],
+      "canais": ["mobile", "360", "360i"],
+      "nota": "Bronze exclusivo de Agencias, com contratacao no app. Na agencia, consultor e gerente vendem pela Plataforma 360 e 360i. Disponibilidade por canal conforme regra vigente."
+    },
+    "uniclass": {
+      "sigla": "IU",
+      "planos": ["prata", "ouro", "platina"],
+      "canais": ["mobile", "360", "360i"],
+      "nota": "Disponibilidade por canal conforme regra vigente."
+    },
+    "personnalite": {
+      "sigla": "IP",
+      "planos": ["ouro", "platina", "titanio"],
+      "canais": ["mobile", "360", "360i"],
+      "nota": "Disponibilidade por canal conforme regra vigente."
+    }
+  },
+
+  "canais_contratacao": {
+    "lista": ["mobile", "plataforma_360", "360i"],
+    "rota_superapp": "Menu > Seguros e planos > Vida, Pet e Odonto > Plano Pet",
+    "nota_360i": "Gerentes, AN e assessores usam a rota de oferta via 360i."
+  },
+
+  "modelos": {
+    "apet": {
+      "nome": "A.Pet (Amigoo)",
+      "tipo": "reembolso",
+      "coparticipacao": false,
+      "escolha_clinica": "clinica de preferencia do cliente",
+      "idade_maxima_pet": "9 anos e 11 meses",
+      "inicio_vigencia": "pagamento da primeira mensalidade",
+      "telemedicina_24h": true,
+      "reembolso": {
+        "prazo_pagamento": "ate 7 dias uteis apos analise e aprovacao",
+        "documentos": [
+          "nota fiscal de pessoa juridica (CNPJ) no CPF do titular",
+          "documentacao veterinaria quando aplicavel",
+          "conta corrente ou poupanca do titular do plano"
+        ],
+        "nao_aceito": [
+          "recibo",
+          "nota fiscal de pessoa fisica",
+          "conta de terceiros",
+          "conta facil",
+          "ordem de pagamento"
+        ],
+        "prazo_limite_acionamento": "acionamentos ocorridos ha 180 dias ou mais nao tem cobertura"
+      },
+      "carencias": {
+        "telemedicina_24h": "24 horas",
+        "consultas_emergencia_comercial_domiciliar": "30 dias",
+        "pre_existencia": "12 meses",
+        "demais": "conforme certificado (resumo do plano)"
+      },
+      "pre_existencia": {
+        "impede_contratacao": false,
+        "carencia": "12 meses",
+        "cronicas_congenitas": "excluidas"
+      },
+      "odontologico": {
+        "limpeza_de_tartaro": "coberta como servico de assistencia, carencia de 180 dias, sem incluir exames nem anestesia",
+        "demais_odontologicos": "excluidos em qualquer hipotese",
+        "validar": false,
+        "disponibilidade_por_plano": "consta no certificado (resumo do contrato); o item 3.2.4 das condicoes gerais informa que nem todos os planos possuem todas as assistencias",
+        "fonte": "apet-condicoes-gerais.pdf (tabela de assistencias e item 3.2.4)"
+      },
+      "fonte": "apet-condicoes-gerais.pdf (clausulas 3, 5, 7, 11 e tabela de assistencias)"
+    },
+
+    "petlove": {
+      "nome": "Petlove Saúde",
+      "tipo": "rede credenciada",
+      "coparticipacao": true,
+      "escolha_clinica": "clinicas credenciadas do plano",
+      "idade_maxima_pet": null,
+      "microchipagem_obrigatoria": true,
+      "limite_anual": "200 vezes o valor mensal do plano",
+      "restituicao": "quando nao ha rede no municipio ou regiao metropolitana, cobertura por restituicao, dentro da regiao de abrangencia e dos valores da tabela, com documentos no nome do responsavel financeiro, em ate 30 dias",
+      "inicio_carencia": {
+        "status": "confirmado; atualizacao na condicao geral pendente",
+        "regra_vigente": "a partir da confirmacao do primeiro pagamento",
+        "confirmado_com_petlove": true,
+        "atualizacao_cg_prevista": "ate o fim de julho de 2026",
+        "pdf_vigente": "ainda cita a microchipagem como marco; a microchipagem segue obrigatoria para uso",
+        "nota": "Regra confirmada com a Petlove. Orientar pelo 1o pagamento. A condicao geral sera atualizada ate o fim de julho de 2026."
+      },
+      "pulo_carencia": {
+        "nome_comercial": "pulo de carencia",
+        "nome_na_cg": "Contratacao de Liberacao da Carencia e do Limite Anual",
+        "fonte": "petlove-{plano}.pdf item 6; nome comercial no FAQ oficial Planos de Saude Pet - Itau Personnalite",
+        "consta_na_condicao_geral": true,
+        "descricao": "Mediante valor adicional, libera um procedimento especifico durante a carencia, ativado apos a confirmacao do pagamento. O mesmo mecanismo libera o limite anual de um procedimento (itens 6.1 a 6.4).",
+        "individualizada": true,
+        "microchipagem_obrigatoria": true,
+        "elegibilidade": "por procedimento especifico; nem todas as coberturas sao elegiveis; verificar no app",
+        "nota": "Funcionalidade contratual (CG item 6), descrita comercialmente como pulo de carencia no FAQ Itau Personnalite. Nao prometer liberacao integral nem automatica."
+      },
+      "pre_existencia": {
+        "especificada_na_condicao_geral": false,
+        "nota": "As condicoes gerais Petlove nao especificam regra de pre-existencia. Orientar pela lista de coberturas do produto, informando que a pre-existencia nao esta especificada nas condicoes gerais.",
+        "fonte": "ausencia verificada nos 5 PDFs Petlove"
+      },
+      "carencias_por_grupo_dias": {
+        "microchipagem": 0,
+        "consultas": 45,
+        "vacinas": 45,
+        "exames_laboratoriais_simples": 45,
+        "procedimentos_clinicos": 45,
+        "exames_laboratoriais_complexos": 60,
+        "exames_de_imagem": 60,
+        "consultas_especialistas": 60,
+        "fisioterapia_acupuntura": 60,
+        "hospedagem": 90,
+        "internacao": 120,
+        "cirurgia_castracao_anestesia": 120,
+        "cremacao_coletiva": 180,
+        "limpeza_de_tartaro": 180
+      },
+      "coparticipacao_representativa_brl": {
+        "retorno_clinico": 0,
+        "consulta_clinico_geral": 30,
+        "consulta_plantao": 50,
+        "consulta_domiciliar": 40,
+        "consulta_especialista": 70,
+        "vacinas": 25,
+        "exames_laboratoriais_simples": "12 a 35",
+        "exames_laboratoriais_complexos": "12 a 90",
+        "exames_de_imagem": "30 a 80",
+        "procedimentos_clinicos": "12 a 90",
+        "internacao": "60 a 250",
+        "anestesia": "50 a 190",
+        "fisioterapia_sessao": 70,
+        "acupuntura_sessao": 70,
+        "limpeza_de_tartaro": 250,
+        "microchipagem": 0,
+        "cremacao_coletiva": 0,
+        "hospedagem": 0,
+        "nota": "Valores podem variar por prestador. Tabela oficial vigente prevalece."
+      },
+      "limitacoes": [
+        "A cobertura e o que consta nas Tabelas de Procedimentos e nas Condicoes Gerais. O que nao esta listado nao faz parte da assistencia.",
+        "Pet Home cobre apenas consultas eletivas, sem urgencia, emergencia ou especialista.",
+        "Medicamentos nao cobertos em nenhuma hipotese: Citrato de Maropitant, Cefovecina Sodica, Meropenem.",
+        "Nao cobre reproducao nem materiais de cirurgia ortopedica (proteses, placas, parafusos, orteses).",
+        "Procedimentos podem ser incluidos ou excluidos pela Petlove com aviso previo de 30 dias."
+      ],
+      "limpeza_de_tartaro": {
+        "coberta_em": ["titanio"],
+        "coparticipacao_brl": 250,
+        "carencia_dias": 180,
+        "nota": "Na Petlove, a limpeza de tartaro e coberta apenas no Titanio."
+      },
+      "fonte": "petlove-{plano}.pdf (clausulas 1, 3, 4, 6, 7, 10, 11, 12, 16 e tabelas)"
+    }
+  },
+
+  "planos": [
+    {
+      "id": "bronze",
+      "nome": "Itau Pet Bronze",
+      "posicionamento": "Entrada. Protecao essencial com custo mensal reduzido.",
+      "preco": 19.9,
+      "contratacao_exclusiva_app": true,
+      "coberturas": [
+        "consultas em horario comercial, plantao e domiciliar",
+        "vacinas",
+        "exames laboratoriais simples",
+        "assistencia funeral",
+        "hospedagem"
+      ],
+      "fonte": "card comercial do site (Bronze, site padrao); valido para Petlove e A.Pet"
+    },
+    {
+      "id": "prata",
+      "nome": "Itau Pet Prata",
+      "posicionamento": "Equilibrio. Rotina veterinaria, boa relacao cobertura e valor.",
+      "preco": 34.9,
+      "coberturas": [
+        "tudo do Bronze",
+        "exames laboratoriais de imagem",
+        "procedimentos clinicos"
+      ],
+      "fonte": "card comercial do site (Prata, site padrao); valido para Petlove e A.Pet"
+    },
+    {
+      "id": "ouro",
+      "nome": "Itau Pet Ouro",
+      "posicionamento": "Rotina. Tranquilidade em exames e atendimentos da rotina.",
+      "preco": 70.0,
+      "coberturas": [
+        "tudo do Prata",
+        "exames laboratoriais complexos",
+        "internacao"
+      ],
+      "fonte": "card comercial do site (Ouro, site Personnalite); valido para Petlove e A.Pet"
+    },
+    {
+      "id": "platina",
+      "nome": "Itau Pet Platina",
+      "posicionamento": "Robusto. Acompanhamento preventivo e amplitude de cobertura.",
+      "preco": 100.0,
+      "coberturas": [
+        "tudo do Ouro",
+        "cirurgias",
+        "castracao",
+        "transfusao de sangue",
+        "consultas e procedimentos especialistas"
+      ],
+      "fonte": "card comercial do site (Platina, site Personnalite); valido para Petlove e A.Pet"
+    },
+    {
+      "id": "titanio",
+      "nome": "Itau Pet Titanio",
+      "posicionamento": "Maxima cobertura. Maxima amplitude e previsibilidade financeira.",
+      "preco": 185.0,
+      "coberturas": [
+        "tudo do Platina",
+        "exames de alta complexidade",
+        "fisioterapia e acupuntura",
+        "limpeza de tartaro"
+      ],
+      "fonte": "card comercial do site (Titanio, site Personnalite); valido para Petlove e A.Pet"
+    }
+  ],
+
+  "nota_coberturas_por_modelo": "A prateleira de coberturas por tier acima segue os cards comerciais do site (Personnalite para Ouro, Platina e Titanio; site padrao para Bronze e Prata) e vale igualmente para Petlove e A.Pet, que tem a mesma escada de precos e os mesmos bullets de cobertura no site. A diferenca entre os parceiros e o modelo de atendimento (rede credenciada com coparticipacao na Petlove, reembolso sem coparticipacao no A.Pet), tratada nos slides de modelo. Detalhes de coparticipacao, carencia, limites e mecanica por modelo ficam na Tabela de Procedimentos oficial de cada plano e nas condicoes gerais.",
+
+  "conveniencias": {
+    "apet": {
+      "itens": [
+        "telemedicina 24h",
+        "assistencia funeral (cremacao ou enterro)",
+        "hospedagem",
+        "voucher anual de medicacao"
+      ],
+      "nota": "Assistencias do A.Pet. A disponibilidade por plano consta no certificado, conforme o item 3.2.4 das condicoes gerais.",
+      "fonte": "apet-condicoes-gerais.pdf (tabela de assistencias)"
+    },
+    "petlove": {
+      "ecossistema_petlove": [
+        "descontos em antiparasitarios e vermifugos",
+        "descontos em lojas fisicas Petlove",
+        "frete gratis",
+        "desconto no site"
+      ],
+      "limite_desconto_site": "ate R$300 por mes",
+      "regioes_desconto": ["Centro-Oeste", "Sul", "Sudeste"],
+      "nota": "Beneficios eventuais do Ecossistema Petlove. Podem ser alterados ou descontinuados a qualquer tempo. Nao prometer como cobertura garantida.",
+      "fonte": "petlove-{plano}.pdf (itens 3.4 a 3.12)"
+    }
+  },
+
+  "exclusoes_apet": [
+    "doencas congenitas e cronicas",
+    "doencas oncologicas e transtornos comportamentais",
+    "tratamentos odontologicos em qualquer hipotese, exceto a limpeza de tartaro (tartarectomia), coberta como servico de assistencia com carencia de 180 dias, sem incluir exames nem anestesia",
+    "tratamentos esteticos e de emagrecimento",
+    "nutrologia e consultas em nutricao para emagrecimento",
+    "obstetricia (parto, pre-natal, pos-parto)",
+    "teste, exames e tratamento de leishmaniose",
+    "doencas causadas por falta de vacinacao",
+    "hemodialise e dialise",
+    "radioterapia",
+    "embolizacao e radiologia intervencionista",
+    "ortodontia",
+    "inseminacao artificial",
+    "banhos, tosa e higiene",
+    "controle de parasitas",
+    "necropsia",
+    "eutanasia",
+    "medicamentos para tratamento domiciliar",
+    "castracao eletiva ou voluntaria, exceto se contemplada expressamente no plano",
+    "acionamentos fora da vigencia, dentro da carencia ou ocorridos ha 180 dias ou mais",
+    "eventos anteriores a contratacao e conhecidos pelo cliente",
+    "reembolso em conta de terceiros e com nota fiscal de pessoa fisica ou recibo"
+  ],
+
+  "petlove_cobertura": {
+    "regra": "A cobertura da Petlove e o que consta nas Tabelas de Procedimentos e nas Condicoes Gerais. O que nao esta listado nao faz parte da assistencia.",
+    "fonte": "petlove-{plano}.pdf clausulas 1.1 e 16.4"
+  },
+
+  "renovacao": {
+    "vigencia": "12 meses",
+    "automatica": true,
+    "aviso_para_nao_renovar": "30 dias",
+    "reajuste_financeiro": "IPCA na data de aniversario",
+    "petlove": {
+      "renovacao": "anual e automatica",
+      "reajuste_financeiro": "IPCA na data de aniversario",
+      "reajuste_tecnico": "aplicado apenas se o custo medico ultrapassar 50% da receita correspondente",
+      "coparticipacao_reajustavel": true,
+      "fonte": "petlove-{plano}.pdf itens 9.7, 13.1 e 13.2"
+    },
+    "apet": {
+      "renovacao": "anual e tacita ao fim da vigencia",
+      "reajuste_financeiro": "IPCA",
+      "coparticipacao": false,
+      "fonte": "apet-condicoes-gerais.pdf clausulas 5.13 e 12.6"
+    }
+  },
+
+  "regras_estruturais": [
+    "um plano por pet (um contrato ativo por pet)",
+    "nao existe upgrade nem downgrade",
+    "para mudar de plano, cancelar e contratar de novo, iniciando novas carencias"
+  ],
+
+  "pendencias": [],
+
+  "carencias_por_modelo": {
+    "nota": "Carencia por grupo de procedimento, conforme a fonte de cada modelo. Petlove: cinco tabelas, prazo igual nos cinco planos, muda o que esta coberto. A.Pet: condicao geral. Os dois modelos tem estruturas e prazos diferentes; mostrar os dois lado a lado para imparcialidade. Detalhe vinculante na tabela ou certificado de cada plano.",
+    "petlove_dias": {
+      "consultas": 45,
+      "vacinas": 45,
+      "exames_laboratoriais_simples": 45,
+      "procedimentos_clinicos": 45,
+      "exames_laboratoriais_complexos": 60,
+      "exames_de_imagem": 60,
+      "consultas_especialistas": 60,
+      "fisioterapia_acupuntura": 60,
+      "hospedagem": 90,
+      "internacao": 120,
+      "cirurgia": 120,
+      "castracao": 120,
+      "anestesia": 120,
+      "cremacao": 180,
+      "limpeza_de_tartaro": 180
+    },
+    "apet_dias": {
+      "telemedicina": "24 horas",
+      "consultas": 30,
+      "procedimentos_clinicos": 30,
+      "assistencia_funeral": 30,
+      "hospedagem": 30,
+      "exames_laboratoriais": 60,
+      "exames_de_imagem": 60,
+      "exames_alta_complexidade": 60,
+      "vacinas": 60,
+      "cirurgias": 60,
+      "internacao": 60,
+      "transfusao": 60,
+      "fisioterapia_acupuntura": 180,
+      "castracao_eletiva": 180,
+      "limpeza_de_tartaro": 180,
+      "anestesia": "acompanha o procedimento principal, sem carencia propria"
+    }
+  },
+
+  "fonte_da_verdade": {
+    "regra": "Cobertura detalhada, carencia, exclusoes, servicos de conveniencia e diferenciais de cada modelo seguem as condicoes gerais de cada plano.",
+    "prateleira": "A prateleira (resumo de o que cada plano cobre, por tier) segue o print do site, porque a condicao geral da A.Pet nao fixa a cobertura por plano (item 3.2.4: disponibilidade por plano consta no certificado). A prateleira aponta para a Tabela de Procedimentos oficial de cada plano para o detalhe vinculante.",
+    "excecao": "Pulo de carencia da Petlove segue o print enviado sobre o tema.",
+    "decidido_por": "Igor, Opcao A"
+  },
+
+  "proxima_rodada": [
+    {
+      "tema": "prateleira_personnalite_vs_print",
+      "nota": "Manter os cinco planos. Conferir na pagina que Ouro, Platina e Titanio das duas prateleiras batem exatamente com o print do site Personnalite, para Petlove e A.Pet."
+    }
+  ],
+
+  "em_alinhamento_na_cg": [
+    {
+      "tema": "carencia_petlove_inicio",
+      "nota": "Regra confirmada com a Petlove (1o pagamento). O texto da condicao geral sera atualizado ate o fim de julho de 2026; o PDF vigente ainda cita a microchipagem como marco."
+    }
+  ],
+
+  "plano_incentivo": {
+    "plataforma_360_360i": "contratos gerados na Plataforma 360 e 360i, Petlove ou A.Pet, contam automaticamente para o plano de incentivo, porque os dois modelos ja estao na plataforma",
+    "mobile": "contratos gerados pelo Mobile (SuperApp), Petlove ou A.Pet, precisam ser registrados no Dynamics para contar no plano de incentivo, para o consultor e o gerente",
+    "origem": "regra comercial interna, nao contratual"
+  }
+}
