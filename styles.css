@@ -102,7 +102,7 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
 }
 .site-header__inner {
   max-width: var(--content-max); margin-inline: auto;
-  padding: .95rem var(--gutter) .4rem;
+  padding: 1.05rem var(--gutter) .65rem;
   display: flex; align-items: center; justify-content: space-between; gap: .9rem;
 }
 .site-header__title {
@@ -123,8 +123,8 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
 /* =====================================================================
    MENU AGRUPADO (.sec-nav) — categorias com dropdown, sem rolagem
    ===================================================================== */
-.sec-nav { max-width: var(--content-max); margin-inline: auto; padding: 0 var(--gutter) .65rem; }
-.nav-groups { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .42rem; justify-content: flex-start; }
+.sec-nav { max-width: var(--content-max); margin-inline: auto; padding: .35rem var(--gutter) .8rem; }
+.nav-groups { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; justify-content: flex-start; }
 .nav-group { position: relative; }
 /* Padrão: pílula branca, texto navy */
 .nav-group__btn {
