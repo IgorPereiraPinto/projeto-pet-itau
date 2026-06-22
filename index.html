@@ -420,7 +420,7 @@
               <li><a href="#slide-08-coberturas">Coberturas Petlove</a></li>
               <li><a href="#slide-08b-coberturas-apet">Coberturas A.Pet</a></li>
               <li><a href="#slide-09-multipet">Desconto multipet</a></li>
-              <li><a href="#slide-10-comparativo">A.Pet x Petlove</a></li>
+              <li><a href="#slide-10-comparativo">Comparativo por plano</a></li>
             </ul>
           </li>
           <li class="nav-group">
@@ -456,6 +456,38 @@
                 <a href="#slide-16-petlove-pulo-carencia">Pulo de carência</a>
               </li>
               <li><a href="#slide-17-petlove-cobertura">Cobertura</a></li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <button type="button" class="nav-group__btn" aria-expanded="false">
+              Como explicar
+            </button>
+            <ul class="nav-group__panel">
+              <li>
+                <a href="#slide-17b-como-explicar"
+                  >Como explicar e orientar a escolha</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <button type="button" class="nav-group__btn" aria-expanded="false">
+              Pós-venda
+            </button>
+            <ul class="nav-group__panel">
+              <li>
+                <a href="#slide-17c-pos-venda">Pós-venda e uso do plano</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group">
+            <button type="button" class="nav-group__btn" aria-expanded="false">
+              Por que Itaú
+            </button>
+            <ul class="nav-group__panel">
+              <li>
+                <a href="#slide-20b-por-que-itau">Por que oferecer pelo Itaú</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group">
@@ -739,8 +771,7 @@
             <p class="card__tag">Rede credenciada · com coparticipação</p>
             <p>
               O cliente usa as clínicas credenciadas do plano e paga
-              coparticipação por serviço. A cobertura segue o que consta nas
-              Tabelas de Procedimentos e nas Condições Gerais.
+              coparticipação por serviço. A cobertura segue as regras do plano.
             </p>
           </article>
           <article class="card card--model card--model-apet reveal">
@@ -763,11 +794,13 @@
       <section id="slide-05-quem-contrata" class="slide slide--alt">
         <div class="slide__head reveal">
           <h2 class="slide__title">Quem pode contratar e onde ofertar</h2>
-          <p class="slide__subtitle">Segmentos, canais e incentivo</p>
+          <p class="slide__subtitle">
+            Segmentos, canais, critérios e incentivo
+          </p>
         </div>
         <p class="slide__lead reveal">
-          Clientes correntistas dos segmentos Itaú. A disponibilidade varia por
-          segmento e canal.
+          Clientes correntistas dos segmentos Itaú. A disponibilidade dos planos
+          varia conforme o segmento e o canal de contratação.
         </p>
 
         <div class="grid grid--3 stagger" id="segmentos-grid">
@@ -776,14 +809,16 @@
             <h3 data-bind="segment-nome"></h3>
             <p class="card__tag">Planos do segmento</p>
             <ul class="plan-pills" data-bind="segment-planos"></ul>
-            <p class="muted" data-bind="segment-nota"></p>
+            <div class="canal-selos" data-bind="segment-canais"></div>
+            <p class="muted card__nota" data-bind="segment-nota"></p>
           </article>
           <article class="card card--segment reveal" data-segment="uniclass">
             <span class="chip chip--sigla" data-bind="sigla"></span>
             <h3 data-bind="segment-nome"></h3>
             <p class="card__tag">Planos do segmento</p>
             <ul class="plan-pills" data-bind="segment-planos"></ul>
-            <p class="muted" data-bind="segment-nota"></p>
+            <div class="canal-selos" data-bind="segment-canais"></div>
+            <p class="muted card__nota" data-bind="segment-nota"></p>
           </article>
           <article
             class="card card--segment reveal"
@@ -793,104 +828,276 @@
             <h3 data-bind="segment-nome"></h3>
             <p class="card__tag">Planos do segmento</p>
             <ul class="plan-pills" data-bind="segment-planos"></ul>
-            <p class="muted" data-bind="segment-nota"></p>
+            <div class="canal-selos" data-bind="segment-canais"></div>
+            <p class="muted card__nota" data-bind="segment-nota"></p>
           </article>
         </div>
 
-        <div class="grid grid--2 grid--gap-top grid--equal">
-          <article class="card reveal">
-            <h3>
-              <svg class="icon icon--inline" aria-hidden="true">
-                <use href="#ic-phone"></use>
+        <!-- Quarto segmento, apenas citado: chip discreto + nome, sem planos/canal/frase -->
+        <aside class="segment-citado reveal">
+          <span class="segment-citado__chip">4º segmento</span>
+          <p class="segment-citado__name">Itaú Private</p>
+        </aside>
+
+        <!-- ===== CRITÉRIOS OBRIGATÓRIOS DE CONTRATAÇÃO ===== -->
+        <div class="block-head reveal">
+          <h3 class="block-title">Critérios obrigatórios para contratar</h3>
+          <p class="block-sub">O que precisa ser verificado antes da venda</p>
+        </div>
+
+        <article class="card card--criterio card--criterio-base reveal">
+          <span class="icon-circle"
+            ><svg class="icon" aria-hidden="true">
+              <use href="#ic-paw"></use></svg
+          ></span>
+          <h3>Válidos para os dois parceiros</h3>
+          <ul class="checklist checklist--cols checklist--themed">
+            <li>
+              <svg class="icon icon--check" aria-hidden="true">
+                <use href="#ic-doc"></use>
               </svg>
-              Canais de oferta
-            </h3>
-            <ul class="checklist">
+              <span>Contratação somente para pessoa física com CPF.</span>
+            </li>
+            <li>
+              <svg class="icon icon--check" aria-hidden="true">
+                <use href="#ic-doc"></use>
+              </svg>
+              <span>Sem limitação de pets por CPF.</span>
+            </li>
+            <li>
+              <svg class="icon icon--check" aria-hidden="true">
+                <use href="#ic-paw"></use>
+              </svg>
+              <span>Somente cães e gatos.</span>
+            </li>
+            <li>
+              <svg class="icon icon--check" aria-hidden="true">
+                <use href="#ic-paw"></use>
+              </svg>
+              <span>Um pet por plano. Dois pets exigem dois planos.</span>
+            </li>
+          </ul>
+        </article>
+
+        <div class="grid grid--2 grid--equal stagger criterios-pair">
+          <article class="card card--criterio card--apet-soft reveal">
+            <span class="model-chip model-chip--apet">
+              <svg class="icon" aria-hidden="true">
+                <use href="#ic-paw"></use>
+              </svg>
+              A.Pet
+            </span>
+            <h3>Regras do A.Pet</h3>
+            <ul class="checklist checklist--themed">
               <li>
                 <svg class="icon icon--check" aria-hidden="true">
-                  <use href="#ic-check"></use>
+                  <use href="#ic-calendar"></use>
                 </svg>
-                Mobile (SuperApp)
+                <span
+                  >Idade máxima de contratação de
+                  <strong>9 anos, 11 meses e 29 dias</strong>. Depois de
+                  contratado, o pet permanece elegível ao plano
+                  independentemente da idade, respeitadas as regras do
+                  produto.</span
+                >
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-syringe"></use>
+                </svg>
+                <span>Vacinação atualizada conforme calendário anual.</span>
               </li>
               <li>
                 <svg class="icon icon--check" aria-hidden="true">
                   <use href="#ic-check"></use>
                 </svg>
-                Plataforma 360, 360i
+                <span>Declarar pré-existência conhecida.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >Carência de <strong>1 ano</strong> para doenças
+                  pré-existentes, declaradas ou não.</span
+                >
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Declarar doença crônica conhecida.</span>
               </li>
             </ul>
           </article>
-          <article class="card card--incentivo reveal">
-            <h3>
-              <svg class="icon icon--inline" aria-hidden="true">
-                <use href="#ic-star"></use>
+          <article class="card card--criterio card--petlove-soft reveal">
+            <span class="model-chip model-chip--petlove">
+              <svg class="icon" aria-hidden="true">
+                <use href="#ic-network"></use>
               </svg>
-              Plano de incentivo
-            </h3>
+              Petlove
+            </span>
+            <h3>Regra da Petlove</h3>
+            <p class="criterio-destaque">
+              <span class="criterio-destaque__big">Sem idade máxima</span>
+              para contratação.
+            </p>
+            <p class="muted">
+              Os critérios válidos para os dois parceiros também se aplicam.
+            </p>
+          </article>
+        </div>
+
+        <article class="card card--incentivo card--incentivo-info reveal">
+          <span class="incentivo-icon" aria-hidden="true"
+            ><svg class="icon"><use href="#ic-star"></use></svg
+          ></span>
+          <div class="incentivo-body">
+            <h3>Plano de incentivo</h3>
             <p class="card__tag">
               Informação comercial interna, não contratual
             </p>
-            <ul class="checklist">
-              <li>
-                <svg class="icon icon--check" aria-hidden="true">
-                  <use href="#ic-check"></use>
-                </svg>
-                <span>Contratos gerados na <strong>Plataforma 360 e 360i</strong>, Petlove ou A.Pet, contam automaticamente para o plano de incentivo, porque os dois modelos já estão na plataforma.</span>
-              </li>
-              <li>
-                <svg class="icon icon--check" aria-hidden="true">
-                  <use href="#ic-check"></use>
-                </svg>
-                <span>Contratos gerados pelo <strong>Mobile (SuperApp)</strong>, Petlove ou A.Pet, precisam ser registrados no <strong>Dynamics</strong> para contar no plano de incentivo, para o consultor e o gerente.</span>
-              </li>
-            </ul>
-          </article>
-        </div>
+            <p>
+              Contratos gerados na <strong>Plataforma 360i</strong> contam
+              automaticamente para o plano de incentivo. Via
+              <strong>Mobile</strong>, é necessário registro no
+              <strong>Dynamics</strong> para pontuar consultor e gerente.
+            </p>
+          </div>
+        </article>
       </section>
 
       <!-- ================== SLIDE 6 · COMO CONTRATAR ====================== -->
       <section id="slide-06-como-contratar" class="slide">
         <div class="slide__head reveal">
           <h2 class="slide__title">Como contratar</h2>
-          <p class="slide__subtitle">SuperApp, do menu ao Plano Pet</p>
+          <p class="slide__subtitle">
+            Dois caminhos: SuperApp e Plataforma 360i
+          </p>
         </div>
-        <div class="grid grid--2 grid--center">
-          <div class="reveal">
-            <p class="slide__lead">
-              A contratação acontece no <strong>SuperApp do Itaú</strong>.
-              Oriente o cliente a seguir a rota:
-            </p>
-            <ol class="route-steps">
-              <li><span class="route-steps__n">1</span> Menu</li>
-              <li><span class="route-steps__n">2</span> Seguros e planos</li>
-              <li><span class="route-steps__n">3</span> Vida, Pet e Odonto</li>
-              <li>
-                <span class="route-steps__n">4</span> Plano Pet — aba
-                <strong>Pet</strong> selecionada, botão
-                <strong>Conhecer</strong>
-              </li>
-            </ol>
-          </div>
-          <figure class="phone-mock reveal">
-            <div class="phone-mock__frame">
-              <div class="phone-mock__screen">
-                <span class="phone-mock__crumb">Menu › Seguros e planos</span>
-                <span class="phone-mock__crumb">Vida, Pet e Odonto</span>
-                <div class="phone-mock__tabs">
-                  <span>Vida</span><span class="is-active">Pet</span
-                  ><span>Odonto</span>
+        <p class="slide__lead reveal">
+          A contratação acontece por dois caminhos, conforme o segmento e o
+          canal disponível. Em ambos, o cliente escolhe o plano, paga e recebe
+          um e-mail de boas-vindas com as informações do produto e o contrato.
+        </p>
+
+        <div class="grid grid--2 stagger journey-grid">
+          <!-- Caminho 1 · SuperApp (Mobile) -->
+          <article class="journey-card reveal">
+            <header class="journey-card__head">
+              <span class="canal-selo canal-selo--mobile">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#ic-phone"></use>
+                </svg>
+                Mobile (SuperApp)
+              </span>
+              <h3>SuperApp, o aplicativo do Itaú</h3>
+              <p class="journey-card__avail">
+                IA e IU usam somente o SuperApp. IP pode usar Mobile e, no
+                atendimento assistido, a Plataforma 360i.
+              </p>
+            </header>
+            <figure class="phone-mock journey-card__mock">
+              <div class="phone-mock__frame">
+                <div class="phone-mock__screen">
+                  <span class="phone-mock__crumb">Menu › Seguros e planos</span>
+                  <span class="phone-mock__crumb">Vida, Pet e Odonto</span>
+                  <div class="phone-mock__tabs">
+                    <span>Vida</span><span class="is-active">Pet</span
+                    ><span>Odonto</span>
+                  </div>
+                  <div class="phone-mock__hero">
+                    <svg class="icon icon--lg" aria-hidden="true">
+                      <use href="#ic-paw"></use>
+                    </svg>
+                  </div>
+                  <button class="phone-mock__btn" type="button" tabindex="-1">
+                    Plano Pet
+                  </button>
                 </div>
-                <div class="phone-mock__hero">
-                  <svg class="icon icon--lg" aria-hidden="true">
-                    <use href="#ic-paw"></use>
-                  </svg>
-                </div>
-                <button class="phone-mock__btn" type="button" tabindex="-1">
-                  Conhecer
-                </button>
               </div>
+            </figure>
+            <div class="journey-card__body">
+              <p class="journey-card__route-title">Rota no app</p>
+              <ol class="route-steps route-steps--compact">
+                <li><span class="route-steps__n">1</span> Menu</li>
+                <li><span class="route-steps__n">2</span> Seguros e planos</li>
+                <li>
+                  <span class="route-steps__n">3</span> Vida, Pet e Odonto
+                </li>
+                <li><span class="route-steps__n">4</span> Plano Pet</li>
+              </ol>
+              <ol class="journey-flow">
+                <li>
+                  Um questionário sobre o pet e as preferências do tutor apoia a
+                  indicação do modelo mais adequado ao perfil do cliente.
+                </li>
+                <li>O cliente escolhe um plano.</li>
+                <li>Realiza o pagamento.</li>
+                <li>
+                  Recebe um e-mail de boas-vindas com as informações do produto
+                  e o contrato.
+                </li>
+              </ol>
             </div>
-          </figure>
+          </article>
+
+          <!-- Caminho 2 · Plataforma 360i (Personnalité) -->
+          <article class="journey-card reveal">
+            <header class="journey-card__head">
+              <span class="canal-selo canal-selo--p360i">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#ic-route"></use>
+                </svg>
+                Plataforma 360i
+              </span>
+              <span class="journey-card__seg">Itaú Personnalité</span>
+              <h3>Atendimento na Plataforma 360i</h3>
+              <p class="journey-card__avail journey-card__avail--ip">
+                Disponível apenas para o segmento IP.
+              </p>
+            </header>
+            <figure class="desktop-mock journey-card__mock">
+              <div class="desktop-mock__frame">
+                <div class="desktop-mock__bar">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="desktop-mock__screen">
+                  <aside class="desktop-mock__side">
+                    <span class="desktop-mock__crumb">Iniciar atendimento</span>
+                    <span class="desktop-mock__item is-active">Seguro Pet</span>
+                  </aside>
+                  <div class="desktop-mock__main">
+                    <div class="desktop-mock__hero">
+                      <svg class="icon icon--lg" aria-hidden="true">
+                        <use href="#ic-paw"></use>
+                      </svg>
+                    </div>
+                    <span class="desktop-mock__btn">Atendimento assistido</span>
+                  </div>
+                </div>
+              </div>
+            </figure>
+            <div class="journey-card__body">
+              <p class="journey-card__route-title">Rota na plataforma</p>
+              <ol class="route-steps route-steps--compact">
+                <li>
+                  <span class="route-steps__n">1</span> Iniciar atendimento
+                </li>
+                <li><span class="route-steps__n">2</span> Seguro Pet</li>
+              </ol>
+              <ol class="journey-flow">
+                <li>Atendimento assistido e apresentação ao cliente.</li>
+                <li>Preenche o questionário.</li>
+                <li>O cliente escolhe um plano.</li>
+                <li>Realiza o pagamento.</li>
+                <li>
+                  Recebe um e-mail de boas-vindas com as informações do produto
+                  e o contrato.
+                </li>
+              </ol>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -992,12 +1199,11 @@
             Planos com rede credenciada e coparticipação. Em parceria com
             Petlove
           </p>
-          <p class="shelf-note">Conforme a tabela oficial de cada plano</p>
+          <p class="shelf-note">Coberturas cumulativas, plano a plano</p>
         </div>
         <p class="slide__lead reveal">
           Cada plano herda o anterior e adiciona coberturas. Os detalhes de
-          coparticipação, carência e limites estão na Tabela de Procedimentos
-          oficial de cada plano.
+          coparticipação, carência e limites variam por plano.
         </p>
         <div class="grid grid--5 stagger" id="coberturas-grid"></div>
       </section>
@@ -1010,12 +1216,11 @@
             Planos com reembolso e sem coparticipação. Em parceria com A.Pet
             (Amigoo)
           </p>
-          <p class="shelf-note">Conforme a tabela oficial de cada plano</p>
+          <p class="shelf-note">Coberturas cumulativas, plano a plano</p>
         </div>
         <p class="slide__lead reveal">
           Cada plano herda o anterior e adiciona coberturas. Os detalhes de
-          coparticipação, carência e limites estão na Tabela de Procedimentos
-          oficial de cada plano.
+          coparticipação, carência e limites variam por plano.
         </p>
         <div class="grid grid--5 stagger" id="coberturas-grid-apet"></div>
       </section>
@@ -1044,24 +1249,20 @@
             <strong>não</strong> recebe o desconto.</span
           >
         </div>
-        <p class="source-note reveal">
-          Fonte: informação interna confirmada (argumento de venda). Não é regra
-          extraída dos PDFs.
-        </p>
       </section>
 
       <!-- ================== SLIDE 10 · COMPARATIVO ======================= -->
       <section id="slide-10-comparativo" class="slide">
         <div class="slide__head reveal">
-          <h2 class="slide__title">
-            A.Pet x Petlove, dois modelos, uma escolha do cliente
-          </h2>
-          <p class="slide__subtitle">O comparativo que conduz a recomendação</p>
+          <h2 class="slide__title">Comparativo por plano</h2>
+          <p class="slide__subtitle">
+            Bronze a Titânio, com A.Pet e Petlove lado a lado
+          </p>
         </div>
         <p class="slide__lead reveal">
-          O modelo ideal depende do perfil do cliente: liberdade de escolher a
-          clínica (A.Pet, por reembolso) ou praticidade da rede credenciada
-          (Petlove, com coparticipação).
+          Abra cada plano para ver A.Pet e Petlove lado a lado, na mesma ordem
+          de campos. O preço é igual nos dois modelos: o que muda é a forma de
+          uso, reembolso na A.Pet e rede credenciada na Petlove.
         </p>
         <div class="model-legend reveal" aria-hidden="true">
           <span><i class="dot dot--apet"></i> A.Pet · Reembolso</span>
@@ -1069,98 +1270,8 @@
             ><i class="dot dot--petlove"></i> Petlove · Rede credenciada</span
           >
         </div>
-        <div class="compare reveal">
-          <table class="compare__table">
-            <thead>
-              <tr>
-                <th scope="col">Característica</th>
-                <th scope="col" class="th--apet">A.Pet (Amigoo)</th>
-                <th scope="col" class="th--petlove">Petlove Saúde</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">
-                  <svg class="icon row-ic" aria-hidden="true">
-                    <use href="#ic-scale"></use></svg
-                  >Modelo
-                </th>
-                <td data-label="A.Pet">Reembolso</td>
-                <td data-label="Petlove">Rede credenciada</td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <svg class="icon row-ic" aria-hidden="true">
-                    <use href="#ic-piggy"></use></svg
-                  >Coparticipação
-                </th>
-                <td data-label="A.Pet">Sem coparticipação</td>
-                <td data-label="Petlove">Com coparticipação</td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <svg class="icon row-ic" aria-hidden="true">
-                    <use href="#ic-clinic"></use></svg
-                  >Escolha da clínica
-                </th>
-                <td data-label="A.Pet">Clínica de preferência</td>
-                <td data-label="Petlove">Clínicas credenciadas do plano</td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <svg class="icon row-ic" aria-hidden="true">
-                    <use href="#ic-paw"></use></svg
-                  >Idade máxima do pet
-                </th>
-                <td data-label="A.Pet">9 anos e 11 meses</td>
-                <td data-label="Petlove">Sem idade máxima</td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <svg class="icon row-ic" aria-hidden="true">
-                    <use href="#ic-calendar"></use></svg
-                  >Início da carência
-                </th>
-                <td data-label="A.Pet">
-                  Vigência no 1º pagamento; carências variam por serviço (24h a
-                  30 dias; pré-existência 12 meses; demais conforme o
-                  certificado)
-                </td>
-                <td data-label="Petlove">
-                  A partir do 1º pagamento; microchipagem obrigatória (ver slide
-                  de carência)
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <svg class="icon row-ic" aria-hidden="true">
-                    <use href="#ic-chip"></use></svg
-                  >Microchipagem
-                </th>
-                <td data-label="A.Pet">Não citada</td>
-                <td data-label="Petlove">Obrigatória para uso</td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <svg class="icon row-ic" aria-hidden="true">
-                    <use href="#ic-network"></use></svg
-                  >Cobertura quando falta rede
-                </th>
-                <td data-label="A.Pet">Não se aplica</td>
-                <td data-label="Petlove">Restituição, conforme regras</td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <svg class="icon row-ic" aria-hidden="true">
-                    <use href="#ic-tag"></use></svg
-                  >Preço por plano
-                </th>
-                <td data-label="A.Pet">Igual nos dois</td>
-                <td data-label="Petlove">Igual nos dois</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- Cards expansíveis renderizados pelo script.js (PET_DATA.comparativo) -->
+        <div class="compare-cards stagger" id="comparativo-cards"></div>
       </section>
 
       <!-- ================== SLIDE 11 · A.PET FUNCIONA ==================== -->
@@ -1215,14 +1326,22 @@
                 <svg class="icon icon--inline" aria-hidden="true">
                   <use href="#ic-heart"></use>
                 </svg>
-                Conveniências da A.Pet
+                Assistências
               </h3>
               <ul class="checklist" id="apet-conv"></ul>
               <p class="muted">
-                Assistências do A.Pet, conforme o certificado de cada plano
-                (item 3.2.4 das condições gerais). Nem todos os planos possuem
-                todas as assistências.
+                Assistências do A.Pet. Nem todos os planos possuem todas as
+                assistências.
               </p>
+            </article>
+            <article class="card card--diferenciais reveal">
+              <h3>
+                <svg class="icon icon--inline" aria-hidden="true">
+                  <use href="#ic-paw"></use>
+                </svg>
+                Serviços de conveniência
+              </h3>
+              <ul class="checklist" id="apet-servicos"></ul>
             </article>
           </div>
           <aside class="aside-box reveal">
@@ -1301,8 +1420,8 @@
             <svg class="icon icon--inline" aria-hidden="true">
               <use href="#ic-alert"></use></svg
             ><span
-              ><strong>Não prometer:</strong> reembolso integral de qualquer
-              valor.</span
+              ><strong>Não prometer:</strong> reembolso em valor específico ou
+              acima dos limites do plano.</span
             >
           </div>
         </div>
@@ -1348,8 +1467,7 @@
               A vigência começa com o pagamento da 1ª mensalidade. Telemedicina
               em <strong>24h</strong>; consultas, emergência, comercial e
               domiciliar em <strong>30 dias</strong>; pré-existência em
-              <strong>12 meses</strong>; demais conforme o certificado. Eventos
-              na carência não têm cobertura.
+              <strong>12 meses</strong>. Eventos na carência não têm cobertura.
             </p>
           </article>
           <article class="card reveal">
@@ -1358,19 +1476,18 @@
                 <use href="#ic-doc"></use></svg
             ></span>
             <h3>Exclusões</h3>
-            <p>
-              Condições gerais A.Pet, cláusula 7. Veja a lista completa abaixo.
-            </p>
+            <p>Veja a lista completa abaixo.</p>
           </article>
         </div>
 
         <div class="carencia-block reveal">
-          <h3 class="carencia-block__title">Carência por procedimento na A.Pet</h3>
+          <h3 class="carencia-block__title">
+            Carência por procedimento na A.Pet
+          </h3>
           <div class="carencia-grid stagger" id="carencia-grid-apet"></div>
-          <p class="source-note">
+          <p class="cover-block__note">
             A anestesia não tem carência própria, acompanha o procedimento
-            principal. A disponibilidade por plano consta no certificado, item
-            3.2.4.
+            principal.
           </p>
         </div>
 
@@ -1387,31 +1504,22 @@
         <div class="cover-block reveal">
           <h3 class="cover-block__title">O que a A.Pet cobre</h3>
           <ul class="cover-list" id="apet-cobertura-lista"></ul>
-          <p class="cover-block__note">
-            Disponibilidade por plano consta no certificado (item 3.2.4).
-          </p>
+          <p class="cover-block__note">A disponibilidade varia por plano.</p>
         </div>
 
         <details class="collapsible reveal">
-          <summary>Exclusões A.Pet — lista completa (cláusula 7)</summary>
+          <summary>Exclusões A.Pet — lista completa</summary>
           <ul class="excl-list" id="apet-exclusoes"></ul>
         </details>
 
-        <div class="note-block reveal">
-          <p>
-            <strong>Nota sobre odontológico:</strong> a limpeza de tártaro
-            (tartarectomia) é coberta no A.Pet como serviço de assistência, com
-            <strong>carência de 180 dias</strong>, sem incluir exames nem
-            anestesia. Isso não contradiz a exclusão: os demais tratamentos
-            odontológicos e os acionamentos decorrentes de problema odontológico
-            seguem excluídos.
-          </p>
-          <p>
-            <strong>Disponibilidade (com fonte):</strong> conforme o item 3.2.4
-            das condições gerais A.Pet, nem todos os planos possuem todas as
-            assistências. A disponibilidade da tartarectomia por plano consta no
-            certificado (resumo do contrato).
-          </p>
+        <div class="badge badge--amber reveal" role="note">
+          <svg class="icon icon--inline" aria-hidden="true">
+            <use href="#ic-alert"></use>
+          </svg>
+          <span
+            ><strong>Tartarectomia A.Pet:</strong> informação pendente de
+            confirmação. Confirmar a regra antes de orientar o cliente.</span
+          >
         </div>
 
         <div class="compliance-pair">
@@ -1429,7 +1537,7 @@
             ><span
               ><strong>Não prometer:</strong> cobertura para crônicas e
               congênitas, uso imediato sem cumprir carência, cobertura
-              odontológica ampla além da limpeza de tártaro.</span
+              odontológica.</span
             >
           </div>
         </div>
@@ -1564,13 +1672,12 @@
             <use href="#ic-refresh"></use>
           </svg>
           <span
-            ><strong>Atualização · marco de início:</strong> a carência conta a
-            partir da confirmação do <strong>1º pagamento</strong>, regra
-            confirmada com a Petlove. A microchipagem deixa de ser o marco, mas
-            segue obrigatória para uso. O PDF vigente ainda cita a
-            microchipagem; o texto da condição geral será atualizado
-            <strong>até o fim de julho de 2026</strong>. Orientar pela regra
-            confirmada.</span
+            ><strong>Primeiro pagamento e microchipagem:</strong> a contagem de
+            carência, renovação e liberação para uso do plano passa a iniciar
+            após a confirmação do primeiro pagamento. A microchipagem segue
+            obrigatória para utilização do plano, mas não é mais o marco inicial
+            da carência. Condições gerais em atualização, com previsão de ajuste
+            até o fim de julho de 2026.</span
           >
         </div>
       </section>
@@ -1631,11 +1738,19 @@
               </div>
             </div>
           </figure>
-          <aside class="aside-box reveal">
-            <p>
-              <strong>Microchipagem obrigatória.</strong> Nem todas as
-              coberturas são elegíveis; o cliente verifica no app.
-            </p>
+          <aside class="nota-aside reveal">
+            <div class="badge badge--amber" role="note">
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-refresh"></use>
+              </svg>
+              <span
+                ><strong>Pulo de carência:</strong> permite antecipar coberturas
+                elegíveis, mediante contratação no app e valor adicional. A
+                microchipagem segue obrigatória e nem todas as coberturas são
+                elegíveis. Condições gerais em atualização, com previsão de
+                ajuste até o fim de julho de 2026.</span
+              >
+            </div>
           </aside>
         </div>
         <div class="compliance-pair">
@@ -1651,14 +1766,11 @@
             <svg class="icon icon--inline" aria-hidden="true">
               <use href="#ic-alert"></use></svg
             ><span
-              ><strong>Não prometer:</strong> liberação integral, aprovação
-              automática, antecipação fora das regras.</span
+              ><strong>Não prometer:</strong> liberação ampla de coberturas,
+              aprovação automática, antecipação fora das regras.</span
             >
           </div>
         </div>
-        <p class="source-note reveal">
-          Fonte: FAQ Itaú Personnalité, item 6 das Dúvidas Frequentes.
-        </p>
       </section>
 
       <!-- ============ SLIDE 17 · PETLOVE COBERTURA ===================== -->
@@ -1673,13 +1785,8 @@
           Petlove · Rede credenciada</span
         >
         <div class="slide__head reveal">
-          <h2 class="slide__title">
-            Petlove: cobertura pela Tabela de Procedimentos
-          </h2>
-          <p class="slide__subtitle">
-            A cobertura é definida pela Tabela de Procedimentos e Condições
-            Gerais
-          </p>
+          <h2 class="slide__title">Petlove: cobertura por inclusão</h2>
+          <p class="slide__subtitle">É coberto o que está previsto no plano</p>
         </div>
         <article class="card card--highlight reveal">
           <span class="icon-circle"
@@ -1688,24 +1795,585 @@
           ></span>
           <p>
             Na Petlove, a lógica é por <strong>inclusão</strong>. É coberto o
-            que consta nas Tabelas de Procedimentos e nas Condições Gerais.
-            <strong>O que não está listado não faz parte da assistência</strong>
-            (itens 1.1 e 16.4). Orientar pelo que está previsto, sem prometer
-            cobertura para procedimentos não listados.
+            que está previsto no plano.
+            <strong
+              >O que não está listado não faz parte da assistência.</strong
+            >
+            Orientar pelo que está previsto, sem prometer cobertura para
+            procedimentos não listados.
           </p>
         </article>
         <div class="cover-block reveal">
           <h3 class="cover-block__title">O que a Petlove cobre</h3>
           <ul class="cover-list" id="petlove-cobertura-lista"></ul>
           <p class="cover-block__note">
-            Disponibilidade por plano na prateleira (slide 8) e na Tabela de
-            Procedimentos de cada plano.
+            A disponibilidade varia por plano. Veja a prateleira (slide 8).
           </p>
         </div>
         <details class="collapsible collapsible--amber reveal">
           <summary>Limitações importantes</summary>
           <ul class="excl-list" id="petlove-limitacoes"></ul>
         </details>
+      </section>
+
+      <!-- ===== SLIDE 17B · COMO EXPLICAR E ORIENTAR A ESCOLHA ========= -->
+      <section id="slide-17b-como-explicar" class="slide slide--alt">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Como explicar e orientar a escolha</h2>
+          <p class="slide__subtitle">Apoio para a fala do consultor</p>
+        </div>
+
+        <!-- Parte 1 · Fala consultiva -->
+        <div class="block-head reveal">
+          <h3 class="block-title">Explique em uma frase</h3>
+          <p class="block-sub">Os conceitos na linguagem do cliente</p>
+        </div>
+        <div class="grid grid--2 grid--equal stagger">
+          <article class="card card--apet-soft fala-card reveal">
+            <span class="model-chip model-chip--apet"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-paw"></use></svg
+              >A.Pet</span
+            >
+            <p>
+              "A A.Pet funciona por reembolso. O cliente escolhe a clínica de
+              preferência, realiza o atendimento, paga o prestador e solicita o
+              reembolso conforme o plano, respeitando limites, carências e
+              regras."
+            </p>
+          </article>
+          <article class="card card--petlove-soft fala-card reveal">
+            <span class="model-chip model-chip--petlove"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-network"></use></svg
+              >Petlove</span
+            >
+            <p>
+              "A Petlove funciona por rede credenciada. O cliente usa as
+              clínicas do plano, paga coparticipação quando utiliza os serviços
+              cobertos e acompanha tudo pelo app."
+            </p>
+          </article>
+        </div>
+        <div class="grid grid--3 grid--equal stagger fala-trio">
+          <article class="card fala-card reveal">
+            <span class="icon-circle fala-card__ic"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-calendar"></use></svg
+            ></span>
+            <h4>Carência</h4>
+            <p>
+              "Carência é o período entre a contratação e o momento em que cada
+              cobertura passa a poder ser usada. Cada serviço tem seu prazo."
+            </p>
+          </article>
+          <article class="card fala-card reveal">
+            <span class="icon-circle fala-card__ic"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-piggy"></use></svg
+            ></span>
+            <h4>Coparticipação</h4>
+            <p>
+              "Coparticipação é um valor pago só quando o cliente usa um serviço
+              coberto. Existe na Petlove. A A.Pet não tem coparticipação."
+            </p>
+          </article>
+          <article class="card fala-card reveal">
+            <span class="icon-circle fala-card__ic"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-invoice"></use></svg
+            ></span>
+            <h4>Reembolso</h4>
+            <p>
+              "No reembolso da A.Pet, o cliente paga o atendimento e depois
+              solicita o valor de volta pelo site, com nota fiscal e os
+              documentos do plano."
+            </p>
+          </article>
+        </div>
+
+        <!-- Parte 2 · Matriz de decisão rápida -->
+        <div class="block-head reveal">
+          <h3 class="block-title">Matriz de decisão rápida</h3>
+          <p class="block-sub">Qual modelo tende a fazer mais sentido</p>
+        </div>
+        <div class="protect-strip reveal">
+          <svg class="icon" aria-hidden="true">
+            <use href="#ic-shield"></use>
+          </svg>
+          <p>
+            <strong>A escolha é do cliente.</strong> O consultor orienta sem
+            direcionar indevidamente.
+          </p>
+        </div>
+        <div class="matriz stagger">
+          <div class="matriz__row reveal">
+            <div class="matriz__perfil">
+              Quer escolher livremente a clínica e ter autonomia
+            </div>
+            <div class="matriz__arrow" aria-hidden="true">→</div>
+            <div class="matriz__rec">
+              <span class="model-chip model-chip--apet">A.Pet</span>
+            </div>
+          </div>
+          <div class="matriz__row reveal">
+            <div class="matriz__perfil">
+              Prefere uma jornada mais prática, com rede credenciada, app e sem
+              precisar solicitar reembolso
+            </div>
+            <div class="matriz__arrow" aria-hidden="true">→</div>
+            <div class="matriz__rec">
+              <span class="model-chip model-chip--petlove">Petlove</span>
+            </div>
+          </div>
+          <div class="matriz__row reveal">
+            <div class="matriz__perfil">Quer evitar pagar coparticipação</div>
+            <div class="matriz__arrow" aria-hidden="true">→</div>
+            <div class="matriz__rec">
+              <span class="model-chip model-chip--apet">A.Pet</span>
+            </div>
+          </div>
+          <div class="matriz__row reveal">
+            <div class="matriz__perfil">
+              Pet com idade acima de 9 anos, 11 meses e 29 dias
+            </div>
+            <div class="matriz__arrow" aria-hidden="true">→</div>
+            <div class="matriz__rec">
+              <span class="model-chip model-chip--petlove">Petlove</span>
+              <span class="matriz__obs"
+                >não tem idade máxima para contratação</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="protect-strip protect-strip--bottom reveal">
+          <svg class="icon" aria-hidden="true">
+            <use href="#ic-shield"></use>
+          </svg>
+          <p>
+            <strong>A escolha é do cliente.</strong> O consultor orienta sem
+            direcionar indevidamente.
+          </p>
+        </div>
+
+        <!-- Parte 3 · Argumentos de venda imparciais -->
+        <div class="block-head reveal">
+          <h3 class="block-title">Argumentos de venda, imparciais</h3>
+          <p class="block-sub">
+            Cada modelo com seus diferenciais, na mesma medida
+          </p>
+        </div>
+        <div class="grid grid--2 grid--equal stagger">
+          <article class="card card--apet-soft arg-card reveal">
+            <span class="model-chip model-chip--apet"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-paw"></use></svg
+              >A.Pet</span
+            >
+            <ul class="checklist">
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Liberdade de escolher a clínica de preferência.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >Solicitação de reembolso conforme o plano, limites, carências
+                  e regras.</span
+                >
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Sem coparticipação.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Telemedicina 24h ilimitada.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >Serviços de conveniência: leva e traz, ração, vacina em
+                  domicílio, banho e tosa.</span
+                >
+              </li>
+            </ul>
+          </article>
+          <article class="card card--petlove-soft arg-card reveal">
+            <span class="model-chip model-chip--petlove"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-network"></use></svg
+              >Petlove</span
+            >
+            <ul class="checklist">
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >Jornada mais prática: uso direto na rede credenciada, sem
+                  precisar pagar o atendimento integral e solicitar
+                  reembolso.</span
+                >
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >App que centraliza a jornada: coberturas, rede e
+                  agendamento.</span
+                >
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Coparticipação apenas quando usa serviços cobertos.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Sem idade máxima para contratação.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Pet Home e hospedagem exclusivo Itaú.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== SLIDE 17C · PÓS-VENDA E USO DO PLANO ==================== -->
+      <section id="slide-17c-pos-venda" class="slide slide--alt">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Pós-venda e uso do plano</h2>
+          <p class="slide__subtitle">
+            Como orientar o cliente depois da contratação
+          </p>
+        </div>
+        <p class="slide__lead reveal">
+          Depois da contratação, a diferença principal entre os modelos está na
+          forma de uso: na A.Pet, o cliente paga o atendimento e solicita
+          reembolso; na Petlove, usa a rede credenciada e paga coparticipação
+          quando utiliza serviços cobertos.
+        </p>
+
+        <!-- Parte 1 · Uso por modelo -->
+        <div class="grid grid--2 grid--equal stagger">
+          <article class="card card--apet-soft uso-card reveal">
+            <span class="model-chip model-chip--apet"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-paw"></use></svg
+              >A.Pet</span
+            >
+            <h3>Uso por reembolso</h3>
+            <ol class="journey-flow">
+              <li>Escolhe a clínica de preferência.</li>
+              <li>Realiza o atendimento.</li>
+              <li>Paga o prestador.</li>
+              <li>Solicita o reembolso pelo site.</li>
+              <li>
+                A análise considera plano, documentos, limites e carências.
+              </li>
+            </ol>
+            <div class="contato-card">
+              <h4>
+                <svg class="icon icon--inline" aria-hidden="true">
+                  <use href="#ic-phone"></use>
+                </svg>
+                Atendimento A.Pet
+              </h4>
+              <p>Central 0800-717-3333</p>
+              <p>WhatsApp (11) 3288-2526</p>
+            </div>
+          </article>
+          <article class="card card--petlove-soft uso-card reveal">
+            <span class="model-chip model-chip--petlove"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-network"></use></svg
+              >Petlove</span
+            >
+            <h3>Uso na rede credenciada</h3>
+            <ol class="journey-flow">
+              <li>Acessa o app ou o espaço do cliente Petlove.</li>
+              <li>Consulta coberturas, rede e agendamentos.</li>
+              <li>Escolhe uma clínica da rede.</li>
+              <li>Agenda ou entra em contato com a clínica.</li>
+              <li>Realiza o atendimento.</li>
+              <li>Paga a coparticipação quando usa serviços cobertos.</li>
+            </ol>
+            <div class="contato-card">
+              <h4>
+                <svg class="icon icon--inline" aria-hidden="true">
+                  <use href="#ic-phone"></use>
+                </svg>
+                Atendimento Petlove
+              </h4>
+              <p>Central 3003-7190</p>
+            </div>
+          </article>
+        </div>
+        <p class="muted reveal">
+          A microchipagem permanece obrigatória para utilização do plano
+          Petlove.
+        </p>
+
+        <!-- Parte 2 · Como orientar no pós-venda -->
+        <div class="block-head reveal">
+          <h3 class="block-title">Como orientar no pós-venda</h3>
+          <p class="block-sub">O que dizer ao cliente em cada modelo</p>
+        </div>
+        <div class="grid grid--2 grid--equal stagger">
+          <article class="card card--apet-soft reveal">
+            <span class="model-chip model-chip--apet"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-paw"></use></svg
+              >A.Pet</span
+            >
+            <ul class="checklist">
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Escolhe a clínica.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Paga o atendimento.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Solicita reembolso.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >O reembolso depende de documentos, limites, carências e
+                  regras do plano.</span
+                >
+              </li>
+            </ul>
+          </article>
+          <article class="card card--petlove-soft reveal">
+            <span class="model-chip model-chip--petlove"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-network"></use></svg
+              >Petlove</span
+            >
+            <ul class="checklist">
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Usa a rede credenciada.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >Consulta a rede e agenda pelo app ou canais
+                  disponíveis.</span
+                >
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Paga coparticipação quando usa serviços cobertos.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >O uso depende de rede, carências, microchipagem e regras do
+                  plano.</span
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Parte 3 · Cancelamento e alterações -->
+        <div class="block-head reveal">
+          <h3 class="block-title">Cancelamento e alterações</h3>
+          <p class="block-sub">Orientações práticas</p>
+        </div>
+        <div class="grid grid--2 grid--equal stagger">
+          <article class="card reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-refresh"></use>
+              </svg>
+              Cancelamento
+            </h3>
+            <ul class="checklist">
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >Pode ser solicitado pelo app do Itaú, pela Plataforma 360i ou
+                  pelos canais do parceiro.</span
+                >
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span>Não há multa de cancelamento.</span>
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >Valores já vencidos permanecem de responsabilidade do
+                  cliente.</span
+                >
+              </li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>
+              <svg class="icon icon--inline" aria-hidden="true">
+                <use href="#ic-doc"></use>
+              </svg>
+              Alterações
+            </h3>
+            <ul class="checklist">
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >O plano não pode ser transferido para outro pet nem para
+                  outro tutor.</span
+                >
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >Para trocar de plano, é preciso cancelar e contratar de novo;
+                  a nova contratação pode gerar nova contagem de carência.</span
+                >
+              </li>
+              <li>
+                <svg class="icon icon--check" aria-hidden="true">
+                  <use href="#ic-check"></use>
+                </svg>
+                <span
+                  >A inclusão de um novo pet depois não recebe o desconto
+                  multipet da contratação inicial.</span
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Parte 4 · FAQ de pós-venda -->
+        <div class="block-head reveal">
+          <h3 class="block-title">Perguntas frequentes do pós-venda</h3>
+          <p class="block-sub">Respostas diretas para a conversa</p>
+        </div>
+        <div class="faq stagger">
+          <details class="faq-item reveal">
+            <summary>
+              O cliente pode usar a clínica de preferência na A.Pet?
+            </summary>
+            <p>
+              Sim. Na A.Pet o cliente escolhe a clínica de preferência, paga o
+              atendimento e solicita reembolso conforme o plano, os documentos,
+              os limites, as carências e as regras aplicáveis.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Como o reembolso da A.Pet é analisado?</summary>
+            <p>
+              O consultor não deve prometer valor específico de reembolso. A
+              análise considera o plano, os limites, as carências, os documentos
+              e as regras aplicáveis.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              Na Petlove o cliente pode usar clínica fora da rede credenciada?
+            </summary>
+            <p>Não. Na Petlove o uso acontece na rede credenciada do plano.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>A Petlove tem coparticipação?</summary>
+            <p>
+              Sim. Na Petlove o cliente paga coparticipação quando utiliza
+              serviços cobertos.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>A microchipagem da Petlove é obrigatória?</summary>
+            <p>
+              Sim. A microchipagem permanece obrigatória para utilização do
+              plano.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              O cliente pode contratar mais de um plano por CPF?
+            </summary>
+            <p>
+              Sim. Não há limitação de pets por CPF, mas cada pet precisa ter
+              seu próprio plano.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>O cliente pode trocar de plano?</summary>
+            <p>
+              Para trocar de plano, é preciso cancelar e contratar de novo. A
+              nova contratação pode gerar nova contagem de carência.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              O plano pode ser transferido para outro pet ou tutor?
+            </summary>
+            <p>
+              Não. O plano não pode ser transferido para outro pet nem para
+              outro tutor.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>
+              Se incluir outro pet depois, recebe o desconto multipet?
+            </summary>
+            <p>
+              Não. O desconto multipet vale apenas para os pets contratados no
+              mesmo ato e na mesma assinatura.
+            </p>
+          </details>
+        </div>
       </section>
 
       <!-- ============ SLIDE 18 · VENDA PROTEGIDA ====================== -->
@@ -1738,12 +2406,12 @@
               Não deve prometer
             </h3>
             <ul class="checklist checklist--red">
-              <li>Cobertura ilimitada.</li>
+              <li>Cobertura acima dos limites do plano.</li>
               <li>Reembolso automático ou imediato.</li>
               <li>Isenção de carência.</li>
               <li>Rede credenciada como regra do A.Pet.</li>
               <li>Uso sem pagamento no momento do atendimento.</li>
-              <li>Atendimento em qualquer clínica na Petlove.</li>
+              <li>Atendimento fora da rede credenciada na Petlove.</li>
               <li>Upgrade ou downgrade de plano.</li>
               <li>Aproveitamento de carências ao trocar de plano.</li>
               <li>Cobertura para procedimentos não listados.</li>
@@ -1772,7 +2440,7 @@
               Não prometer uso imediato de pré-existência sem cumprir a carência
               de 12 meses (A.Pet), nem cobertura para crônicas, congênitas,
               oncológicas e comportamentais. Na Petlove, não prometer
-              procedimento fora da Tabela.
+              procedimento fora dos serviços previstos no plano.
             </p>
           </article>
           <article class="card card--risk reveal">
@@ -1782,8 +2450,8 @@
             ></span>
             <h3>Carência</h3>
             <p>
-              Não prometer isenção, uso ilimitado, nem aproveitamento ao trocar
-              de plano.
+              Não prometer isenção, uso acima dos limites do plano, nem
+              aproveitamento ao trocar de plano.
             </p>
           </article>
           <article class="card card--risk reveal">
@@ -1823,10 +2491,17 @@
             <ul class="checklist">
               <li><span>Vigência de 12 meses, renovação automática.</span></li>
               <li>
-                <span>Reajuste financeiro pelo <strong>IPCA</strong> na data de aniversário.</span>
+                <span
+                  >Reajuste financeiro pelo <strong>IPCA</strong> na data de
+                  aniversário.</span
+                >
               </li>
               <li>
-                <span>Eventual reajuste técnico, aplicado apenas se o custo médico ultrapassar <strong>50% da receita</strong> correspondente.</span>
+                <span
+                  >Eventual reajuste técnico, aplicado apenas se o custo médico
+                  ultrapassar
+                  <strong>50% da receita</strong> correspondente.</span
+                >
               </li>
               <li><span>Coparticipação também sujeita a reajuste.</span></li>
             </ul>
@@ -1840,7 +2515,9 @@
             </h3>
             <ul class="checklist">
               <li><span>Renovação anual e tácita ao fim da vigência.</span></li>
-              <li><span>Reajuste da mensalidade pelo <strong>IPCA</strong>.</span></li>
+              <li>
+                <span>Reajuste da mensalidade pelo <strong>IPCA</strong>.</span>
+              </li>
               <li><span>Sem coparticipação.</span></li>
             </ul>
           </article>
@@ -1854,6 +2531,68 @@
             antecedência.</span
           >
         </div>
+      </section>
+
+      <!-- ===== SLIDE 20B · POR QUE OFERECER PELO ITAÚ ================= -->
+      <section id="slide-20b-por-que-itau" class="slide">
+        <div class="slide__head reveal">
+          <h2 class="slide__title">Por que oferecer o Plano Pet pelo Itaú</h2>
+          <p class="slide__subtitle">
+            A jornada, a orientação e a conveniência que o banco agrega
+          </p>
+        </div>
+        <p class="slide__lead reveal">
+          A contratação pelo Itaú agrega jornada, orientação e conveniência ao
+          produto dos parceiros.
+        </p>
+        <ul class="beneficios-list stagger">
+          <li class="beneficio reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-phone"></use></svg
+            ></span>
+            <p>
+              Contratação pelo SuperApp do Itaú, integrada à jornada do banco.
+            </p>
+          </li>
+          <li class="beneficio reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-route"></use></svg
+            ></span>
+            <p>
+              Para o segmento IP, atendimento assistido pela Plataforma 360i,
+              com apoio de consultor, gerente e assessor.
+            </p>
+          </li>
+          <li class="beneficio reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-paw"></use></svg
+            ></span>
+            <p>
+              Dois modelos numa só prateleira, A.Pet e Petlove, com questionário
+              que apoia a orientação da escolha conforme o perfil do cliente.
+            </p>
+          </li>
+          <li class="beneficio reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-book"></use></svg
+            ></span>
+            <p>
+              Apoio do consultor na explicação de planos, carências, uso,
+              reembolso e coparticipação.
+            </p>
+          </li>
+          <li class="beneficio reveal">
+            <span class="icon-circle"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#ic-tag"></use></svg
+            ></span>
+            <p>Desconto multipet conforme a regra do produto.</p>
+          </li>
+        </ul>
       </section>
 
       <!-- ============ SLIDE 21 · ENCERRAMENTO ======================= -->
@@ -1983,13 +2722,8 @@
     <footer class="site-footer">
       <p>
         Plano Pet Itaú · Material consultivo para consultores e gerentes. Não
-        substitui o regulamento do plano. As regras oficiais de cobertura,
-        limites e carências estão nas Condições Gerais.
-      </p>
-      <p class="muted">
-        Fontes: condições gerais (PDFs em Docs/Pet),
-        <code>dados/planos.json</code> e cards comerciais. Conteúdo em
-        alinhamento aparece com selo visível.
+        substitui o regulamento do plano. As regras de cobertura, limites e
+        carências seguem o regulamento de cada plano.
       </p>
       <a class="to-top" href="#topo" aria-label="Voltar ao topo">↑ Topo</a>
     </footer>

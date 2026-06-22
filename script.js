@@ -43,10 +43,14 @@ const PET_DATA = {
       { pet: 3, mensalidade: 90.0 }
     ]
   },
+  // Canais por segmento: rótulo e ícone do selo exibido em cada card.
+  canais_labels: { mobile: "Mobile", "360i": "Plataforma 360i" },
+  canais_icone: { mobile: "ic-phone", "360i": "ic-route" },
   segmentos: {
-    agencias: { sigla: "IA", nome: "Itaú Agências", planos: ["bronze", "prata", "ouro"], nota: "Bronze exclusivo de Agências, com contratação no app. Na agência, consultor e gerente vendem pela Plataforma 360 e 360i." },
-    uniclass: { sigla: "IU", nome: "Itaú Uniclass", planos: ["prata", "ouro", "platina"], nota: "Disponibilidade por canal conforme regra vigente." },
-    personnalite: { sigla: "IP", nome: "Itaú Personnalité", planos: ["ouro", "platina", "titanio"], nota: "Disponibilidade por canal conforme regra vigente." }
+    agencias: { sigla: "IA", nome: "Itaú Agências", planos: ["bronze", "prata", "ouro"], canais: ["mobile"], nota: "" },
+    uniclass: { sigla: "IU", nome: "Itaú Uniclass", planos: ["prata", "ouro", "platina"], canais: ["mobile"], nota: "" },
+    personnalite: { sigla: "IP", nome: "Itaú Personnalité", planos: ["ouro", "platina", "titanio"], canais: ["mobile", "360i"], nota: "Disponibilidade por canal conforme regra vigente. Na agência, consultores, gerentes e assessores vendem pela Plataforma 360i." }
+    // Itaú Private é citado como o quarto segmento direto no HTML, sem planos, canal nem nota.
   },
   planos: [
     { id: "bronze", nome: "Itaú Pet Bronze", posicionamento: "Entrada. Proteção essencial com custo mensal reduzido.", preco: 19.9, contratacao_exclusiva_app: true,
@@ -62,7 +66,7 @@ const PET_DATA = {
   ],
   conveniencias: {
     apet: ["telemedicina 24h", "assistência funeral (cremação ou enterro)", "hospedagem", "voucher anual de medicação"],
-    petlove: ["descontos em antiparasitários e vermífugos", "descontos em lojas físicas Petlove", "frete grátis", "desconto no site (até R$ 300/mês · Centro-Oeste, Sul e Sudeste)"]
+    petlove: ["Clube Petlove, por R$ 2,90", "descontos em antiparasitários e vermífugos", "descontos em lojas físicas Petlove", "frete grátis", "desconto no site (até R$ 300/mês · Centro-Oeste, Sul e Sudeste)"]
   },
   apet_regras_estruturais: [
     "Um plano por pet (um contrato ativo por pet).",
@@ -71,7 +75,7 @@ const PET_DATA = {
   ],
   exclusoes_apet: [
     "doenças congênitas e crônicas", "doenças oncológicas e transtornos comportamentais",
-    "tratamentos odontológicos em qualquer hipótese, exceto a limpeza de tártaro (tartarectomia), coberta como serviço de assistência com carência de 180 dias, sem incluir exames nem anestesia",
+    "tratamentos odontológicos (limpeza de tártaro pendente de confirmação)",
     "tratamentos estéticos e de emagrecimento", "nutrologia e consultas em nutrição para emagrecimento",
     "obstetrícia (parto, pré-natal, pós-parto)", "teste, exames e tratamento de leishmaniose",
     "doenças causadas por falta de vacinação", "hemodiálise e diálise", "radioterapia",
@@ -117,14 +121,13 @@ const PET_DATA = {
     { valor: 24, unidade: "horas", nome: "telemedicina" },
     { valor: 30, unidade: "dias", nome: "consultas (emergência, horário comercial, domiciliar e com especialista); procedimentos clínicos; assistência funeral; hospedagem" },
     { valor: 60, unidade: "dias", nome: "exames laboratoriais, de imagem e de alta complexidade; vacinas; cirurgias; internação; transfusão" },
-    { valor: 180, unidade: "dias", nome: "fisioterapia e acupuntura; castração eletiva; limpeza de tártaro" }
+    { valor: 180, unidade: "dias", nome: "fisioterapia e acupuntura; castração eletiva" }
   ],
   // Cobertura consolidada (lista no estilo coberto) por modelo
   petlove_cobertura_lista: [
     "Consultas (clínico geral)",
     "Consultas com especialistas",
     "Pet Home (consulta a domicílio, eletiva e agendada)",
-    "Telemedicina",
     "Vacinas",
     "Exames laboratoriais (simples e complexos)",
     "Exames de imagem",
@@ -151,7 +154,6 @@ const PET_DATA = {
     "Transfusão de sangue",
     "Fisioterapia e acupuntura",
     "Castração eletiva",
-    "Limpeza de tártaro",
     "Anestesia (acompanha o procedimento principal)",
     "Assistência funeral",
     "Hospedagem (condicionada)",
@@ -163,14 +165,95 @@ const PET_DATA = {
     { label: "Assistência funeral", desc: "cremação ou enterro." },
     { label: "Voucher anual de medicação", desc: "compra de medicamento em farmácia ou clínica." },
     { label: "Hospedagem", desc: "condicionada; não cobre simples hospedagem nem locais inapropriados, restrições do hotel podem se aplicar." },
-    { label: "Central de atendimento", desc: "0800 717 3330." }
+    { label: "Central de atendimento", desc: "0800-717-3333." }
+  ],
+  // Serviços de conveniência da A.Pet (grupo distinto das assistências, slide 11)
+  apet_servicos_conveniencia: [
+    "Agendamento de leva e traz.",
+    "Envio de ração.",
+    "Aplicação de vacina em domicílio.",
+    "Indicação de banho e tosa."
   ],
   // Diferenciais de serviço da Petlove (além do Ecossistema)
   petlove_diferenciais_servico: [
     { label: "Pet Home", desc: "consulta veterinária a domicílio, só eletiva e com agendamento prévio; não cobre urgência, emergência nem especialista a domicílio; não substitui clínica/hospital; não faz coleta de exame em casa. Coparticipação R$ 40, carência 45 dias." },
-    { label: "Acesso pelo app", desc: "o app Petlove Saúde é a plataforma do plano, com gestão, agendamento e telemedicina." },
+    { label: "Acesso pelo app", desc: "o app Petlove Saúde é a plataforma do plano, com gestão do plano, consulta de coberturas, rede credenciada e agendamentos." },
     { label: "Hospedagem Pet, exclusivo Itaú", desc: "sem coparticipação (R$ 0), nos cinco planos, carência 90 dias." }
-  ]
+  ],
+
+  /* ------------------------------------------------------------------
+     BLOCO 2 — Comparativo por plano (cards expansíveis A.Pet x Petlove).
+     Regras gerais por modelo valem em todos os cards. Números detalhados,
+     tetos, limites e utilizações SÓ no Platina. Notas permitidas: duas,
+     ambas em selo âmbar (primeiro pagamento Petlove e tartarectomia A.Pet).
+     ------------------------------------------------------------------ */
+  comparativo: {
+    modelos: {
+      apet: {
+        nome: "A.Pet", tipo: "Reembolso",
+        comoUsa: "Reembolso. O cliente escolhe a clínica de preferência, realiza o atendimento, paga o prestador e solicita reembolso conforme o plano contratado.",
+        copart: "Sem coparticipação.",
+        idade: "Contratação até 9 anos, 11 meses e 29 dias. Depois de contratado, o pet permanece elegível ao plano independentemente da idade, respeitadas as regras do produto.",
+        carencia: "Telemedicina 24h em 24 horas; consultas e procedimentos clínicos em 30 dias; exames, vacinas, cirurgias, internação e transfusão em 60 dias; fisioterapia, acupuntura e castração em 180 dias."
+      },
+      petlove: {
+        nome: "Petlove", tipo: "Rede credenciada",
+        comoUsa: "Rede credenciada. O cliente utiliza clínicas do plano e paga coparticipação quando usa serviços cobertos.",
+        copart: "Com coparticipação.",
+        idade: "Sem idade máxima para contratação.",
+        carencia: "Consultas, vacinas, exames laboratoriais simples e procedimentos clínicos em 45 dias; exames laboratoriais complexos, exames de imagem, especialistas, fisioterapia e acupuntura em 60 dias; hospedagem em 90 dias; internação, cirurgia, castração e anestesia em 120 dias; cremação e limpeza de tártaro em 180 dias; microchipagem em 0 dia."
+      }
+    },
+    notas: {
+      petlovePrimeiroPagamento: "A contagem de carência e renovação e a liberação para uso do plano passam a iniciar após a confirmação do primeiro pagamento. A microchipagem segue obrigatória para utilização do plano, mas não é mais o marco inicial de carência. Condições gerais em atualização, previsão de ajuste até o fim de julho de 2026.",
+      apetTartarectomia: "Informação pendente de confirmação. Confirmar a regra antes de orientar o cliente."
+    },
+    planos: [
+      { id: "bronze", nome: "Bronze", preco: 19.9, segmentos: ["IA"],
+        posicionamento: "Entrada, proteção essencial com custo mensal reduzido.",
+        coberturas: ["consultas em horário comercial, plantão e domiciliar", "vacinas", "exames laboratoriais simples", "assistência funeral", "hospedagem"] },
+      { id: "prata", nome: "Prata", preco: 34.9, segmentos: ["IA", "IU"],
+        posicionamento: "Equilíbrio, rotina veterinária com boa relação entre cobertura e valor.",
+        coberturas: ["tudo do Bronze", "exames de imagem", "procedimentos clínicos"] },
+      { id: "ouro", nome: "Ouro", preco: 70.0, segmentos: ["IA", "IU", "IP"],
+        posicionamento: "Rotina, mais tranquilidade para exames e atendimentos do dia a dia.",
+        coberturas: ["tudo do Prata", "exames laboratoriais complexos", "internação"] },
+      { id: "platina", nome: "Platina", preco: 100.0, segmentos: ["IU", "IP"],
+        posicionamento: "Robusto, acompanhamento preventivo e maior amplitude de cobertura.",
+        coberturas: ["tudo do Ouro", "cirurgias", "castração", "transfusão de sangue", "consultas e procedimentos especialistas"],
+        apetTartarectomiaTopic: true,
+        precoNota: "R$ 100,00/mês nos dois modelos.",
+        diferenciais: {
+          apet: "Voucher de medicamentos de R$ 150 por ano, carência 30 dias.",
+          petlove: "Clube Petlove por R$ 2,90."
+        },
+        tabela: [
+          { item: "Consulta horário comercial", apet: "Ilimitado até R$ 200/uso · carência 30 dias", petlove: "Ilimitado · carência 45 dias" },
+          { item: "Consulta de plantão", apet: "Ilimitado até R$ 200/uso · carência 30 dias", petlove: "Ilimitado · carência 45 dias" },
+          { item: "Consulta de emergência", apet: "Ilimitado até R$ 200/uso · carência 30 dias", petlove: null },
+          { item: "Consulta domiciliar", apet: "Ilimitado até R$ 200/uso · carência 30 dias", petlove: "Ilimitado · carência 45 dias" },
+          { item: "Microchipagem", apet: null, petlove: "1 utilização · carência 0 dia" },
+          { item: "Telemedicina 24h", apet: "Ilimitado · carência 24 horas", petlove: null },
+          { item: "Procedimentos clínicos", apet: "Ilimitado até R$ 250/uso · carência 30 dias", petlove: "Ilimitado · carência 45 dias" },
+          { item: "Procedimentos especialistas", apet: "Ilimitado até R$ 300/uso · carência 30 dias", petlove: "20 utilizações · carência 60 dias" },
+          { item: "Exames laboratoriais", apet: "Ilimitado até R$ 1.400/uso · carência 60 dias", petlove: "20 utilizações (simples e 10 complexos) · carência 45 dias para simples e 60 dias para complexos" },
+          { item: "Vacinas", apet: "2 utilizações até R$ 250/uso · carência 60 dias", petlove: "3 tipos mais aplicação (cães 2, gatos 2) · carência 45 dias" },
+          { item: "Assistência funeral", apet: "1 utilização até R$ 500 · carência 30 dias", petlove: "1 utilização · carência 180 dias" },
+          { item: "Hospedagem", apet: "8 diárias até R$ 200/diária · carência 30 dias", petlove: "8 diárias · carência 90 dias" },
+          { item: "Exames de imagem", apet: "Ilimitado até R$ 1.400/uso · carência 60 dias", petlove: "6 utilizações · carência 60 dias" },
+          { item: "Internação", apet: "6 diárias até R$ 300/diária · carência 60 dias", petlove: "8 utilizações · carência 120 dias" },
+          { item: "Cirurgias", apet: "Ilimitado até R$ 1.500/uso · carência 60 dias", petlove: "3 utilizações · carência 120 dias" },
+          { item: "Consulta com especialista", apet: "Ilimitado até R$ 200/uso · carência 30 dias", petlove: "3 utilizações · carência 60 dias" },
+          { item: "Castração", apet: "1 utilização até R$ 500 · carência 180 dias", petlove: "1 utilização · carência 120 dias" },
+          { item: "Transfusão", apet: "Ilimitado até R$ 300/uso · carência 60 dias", petlove: "Ilimitado · carência 120 dias" },
+          { item: "Tartarectomia (limpeza de tártaro)", apetPendente: true, petlove: "Coberto · carência 180 dias" }
+        ] },
+      { id: "titanio", nome: "Titânio", preco: 185.0, segmentos: ["IP"],
+        posicionamento: "Máxima cobertura, maior amplitude e previsibilidade financeira.",
+        coberturas: ["tudo do Platina", "exames de alta complexidade", "fisioterapia e acupuntura", "limpeza de tártaro"],
+        apetTartarectomiaTopic: true }
+    ]
+  }
 };
 
 /* --------------------------------------------------------------------
@@ -190,7 +273,16 @@ function renderSegmentos() {
     card.querySelector('[data-bind="segment-nome"]').textContent = seg.nome;
     const ul = card.querySelector('[data-bind="segment-planos"]');
     ul.innerHTML = seg.planos.map((id) => `<li>${planoById(id).nome.replace("Itaú Pet ", "")}</li>`).join("");
-    card.querySelector('[data-bind="segment-nota"]').textContent = seg.nota;
+    // Selo de canal: Mobile nos três; 360i só onde o segmento o lista (Personnalité).
+    const selos = card.querySelector('[data-bind="segment-canais"]');
+    if (selos) {
+      selos.innerHTML = (seg.canais || []).map((c) =>
+        `<span class="canal-selo canal-selo--${c === "360i" ? "p360i" : c}"><svg class="icon" aria-hidden="true"><use href="#${PET_DATA.canais_icone[c]}"></use></svg>${PET_DATA.canais_labels[c]}</span>`
+      ).join("");
+    }
+    // Nota só aparece quando o segmento tem uma; sem nota, o parágrafo some.
+    const notaEl = card.querySelector('[data-bind="segment-nota"]');
+    if (notaEl) { if (seg.nota) { notaEl.textContent = seg.nota; notaEl.hidden = false; } else { notaEl.hidden = true; } }
   });
 }
 
@@ -205,10 +297,16 @@ function renderEscada() {
 }
 
 function renderCoberturas() {
-  // Mesma prateleira (bullets idênticos) renderizada nas DUAS seções peer:
-  // Petlove (coberturas-grid) e A.Pet (coberturas-grid-apet).
-  const html = PET_DATA.planos.map((p) => {
-    const itens = p.coberturas.map((c) => `<li><svg class="icon" aria-hidden="true"><use href="#ic-check"></use></svg><span>${c}</span></li>`).join("");
+  // Mesma prateleira renderizada nas DUAS seções peer: Petlove (coberturas-grid)
+  // e A.Pet (coberturas-grid-apet). No lado A.Pet, a limpeza de tártaro
+  // (tartarectomia) NÃO é cobertura confirmada: aparece como pendente.
+  const buildHtml = (model) => PET_DATA.planos.map((p) => {
+    const itens = p.coberturas.map((c) => {
+      if (/tártaro/i.test(c) && model === "apet") {
+        return `<li class="is-pend"><svg class="icon" aria-hidden="true"><use href="#ic-alert"></use></svg><span>${c} (pendente de confirmação)</span></li>`;
+      }
+      return `<li><svg class="icon" aria-hidden="true"><use href="#ic-check"></use></svg><span>${c}</span></li>`;
+    }).join("");
     const flag = p.contratacao_exclusiva_app ? `<span class="cov-card__flag">Contratação exclusiva no app</span>` : "";
     return `<article class="cov-card reveal">
       <div class="cov-card__name">${p.nome.replace("Itaú Pet ", "")}</div>
@@ -218,10 +316,10 @@ function renderCoberturas() {
       ${flag}
     </article>`;
   }).join("");
-  ["coberturas-grid", "coberturas-grid-apet"].forEach((id) => {
-    const grid = document.getElementById(id);
-    if (grid) grid.innerHTML = html;
-  });
+  const petlove = document.getElementById("coberturas-grid");
+  if (petlove) petlove.innerHTML = buildHtml("petlove");
+  const apet = document.getElementById("coberturas-grid-apet");
+  if (apet) apet.innerHTML = buildHtml("apet");
 }
 
 function renderMultipet() {
@@ -251,10 +349,19 @@ function renderDetalheLista(id, arr) {
   el.innerHTML = arr.map((it) => `<li><svg class="icon icon--check" aria-hidden="true"><use href="#ic-check"></use></svg><span><strong>${it.label}:</strong> ${it.desc}</span></li>`).join("");
 }
 
+// Checklist simples com ícone de check (mesmo padrão visual das assistências)
+function renderChecklistCheck(id, arr) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = arr.map((t) => `<li><svg class="icon icon--check" aria-hidden="true"><use href="#ic-check"></use></svg><span>${t}</span></li>`).join("");
+}
+
 function renderConveniencias() {
-  // A.Pet: conveniências detalhadas (slide 11). Petlove: Ecossistema (slide 14)
-  // mais os Diferenciais de serviço (slide 14).
+  // A.Pet: assistências detalhadas + serviços de conveniência, dois grupos
+  // distintos (slide 11). Petlove: Ecossistema (slide 14) mais os
+  // Diferenciais de serviço (slide 14).
   renderDetalheLista("apet-conv", PET_DATA.apet_conveniencias);
+  renderChecklistCheck("apet-servicos", PET_DATA.apet_servicos_conveniencia);
   renderListaSimples("petlove-conv", PET_DATA.conveniencias.petlove);
   renderDetalheLista("petlove-servico", PET_DATA.petlove_diferenciais_servico);
 }
@@ -280,6 +387,93 @@ function renderCarencias() {
   if (grid) grid.innerHTML = PET_DATA.petlove_carencias_grupos.map(carItem).join("");
   const gridApet = document.getElementById("carencia-grid-apet");
   if (gridApet) gridApet.innerHTML = PET_DATA.apet_carencias_grupos.map(carItem).join("");
+}
+
+/* --------------------------------------------------------------------
+   BLOCO 2 — Comparativo por plano: cinco cards expansíveis (<details>),
+   cada um com duas colunas simétricas A.Pet x Petlove na mesma ordem de
+   campos. Números/limites só no Platina. Onde um modelo não tem dado para
+   um item, o item não é renderizado naquele lado (sem texto de ausência).
+   -------------------------------------------------------------------- */
+function renderComparativo() {
+  const root = document.getElementById("comparativo-cards");
+  if (!root) return;
+  const C = PET_DATA.comparativo;
+
+  const field = (label, val) =>
+    `<div class="cmp-field"><span class="cmp-field__label">${label}</span><p class="cmp-field__val">${val}</p></div>`;
+
+  // Coberturas por coluna: a tartarectomia da A.Pet aparece como pendente (âmbar)
+  const cobList = (plan, model) => plan.coberturas.map((c) => {
+    const tartar = /tártaro/i.test(c);
+    if (tartar && model === "apet" && plan.apetTartarectomiaTopic) {
+      return `<li class="is-pend"><svg class="icon" aria-hidden="true"><use href="#ic-alert"></use></svg><span>${c} (pendente de confirmação)</span></li>`;
+    }
+    return `<li><svg class="icon" aria-hidden="true"><use href="#ic-check"></use></svg><span>${c}</span></li>`;
+  }).join("");
+
+  // Limites/tetos/utilizações (só Platina): item não renderizado no lado sem dado
+  const limList = (plan, model) => plan.tabela.map((r) => {
+    const pend = model === "apet" && r.apetPendente;
+    const val = model === "apet" ? r.apet : r.petlove;
+    if (!val && !pend) return "";
+    const v = pend
+      ? `<span class="cmp-pend"><svg class="icon" aria-hidden="true"><use href="#ic-alert"></use></svg>pendente de confirmação</span>`
+      : val;
+    return `<li><span class="cmp-lim__item">${r.item}</span><span class="cmp-lim__val">${v}</span></li>`;
+  }).join("");
+
+  const column = (model, plan) => {
+    const m = C.modelos[model];
+    let h = `<header class="cmp-col__head"><span class="cmp-col__badge cmp-col__badge--${model}">${m.nome}</span><span class="cmp-col__tipo">${m.tipo}</span></header>`;
+    if (plan.diferenciais && plan.diferenciais[model]) {
+      h += `<div class="cmp-dif"><svg class="icon" aria-hidden="true"><use href="#ic-star"></use></svg><span><strong>Diferencial:</strong> ${plan.diferenciais[model]}</span></div>`;
+    }
+    h += field("Como usa", m.comoUsa);
+    h += field("Coparticipação", m.copart);
+    h += field("Idade", m.idade);
+    h += field("Carência geral", m.carencia);
+    h += `<div class="cmp-field"><span class="cmp-field__label">Coberturas do plano</span><ul class="cmp-cob">${cobList(plan, model)}</ul></div>`;
+    if (plan.tabela) {
+      h += `<div class="cmp-field"><span class="cmp-field__label">Limites, tetos e utilizações</span><ul class="cmp-lim">${limList(plan, model)}</ul></div>`;
+    }
+    let nota = "";
+    if (model === "petlove") nota = C.notas.petlovePrimeiroPagamento;
+    if (model === "apet" && plan.apetTartarectomiaTopic) nota = C.notas.apetTartarectomia;
+    if (nota) {
+      h += `<div class="cmp-field"><span class="cmp-field__label">Pontos de atenção</span><div class="cmp-nota"><svg class="icon" aria-hidden="true"><use href="#ic-alert"></use></svg><p>${nota}</p></div></div>`;
+    }
+    return `<section class="cmp-col cmp-col--${model}">${h}</section>`;
+  };
+
+  root.innerHTML = C.planos.map((plan) => {
+    const segs = plan.segmentos.map((s) => `<span class="cmp-chip cmp-chip--seg">${s}</span>`).join("");
+    const resumo = plan.precoNota ? `<p class="cmp-card__resumo">${plan.precoNota}</p>` : "";
+    return `<details class="cmp-card reveal" data-plan="${plan.id}">
+      <summary class="cmp-card__head">
+        <div class="cmp-card__main">
+          <div class="cmp-card__titles">
+            <h3 class="cmp-card__name">${plan.nome}</h3>
+            <span class="cmp-card__price">${fmtBRL(plan.preco)}<span class="cmp-card__per">/mês</span></span>
+          </div>
+          <div class="cmp-card__chips">
+            <span class="cmp-chips__group">${segs}</span>
+            <span class="cmp-chip cmp-chip--apet">A.Pet</span>
+            <span class="cmp-chip cmp-chip--petlove">Petlove</span>
+          </div>
+          <p class="cmp-card__pos">${plan.posicionamento}</p>
+        </div>
+        <span class="cmp-card__chev" aria-hidden="true"></span>
+      </summary>
+      <div class="cmp-card__body">
+        ${resumo}
+        <div class="cmp-cols">
+          ${column("apet", plan)}
+          ${column("petlove", plan)}
+        </div>
+      </div>
+    </details>`;
+  }).join("");
 }
 
 /* --------------------------------------------------------------------
@@ -461,6 +655,9 @@ const MANUAL_GROUPS = [
   { id: "planos", label: "Planos e coberturas", items: ["slide-05-quem-contrata", "slide-06-como-contratar", "slide-07-escada-planos", "slide-08-coberturas", "slide-08b-coberturas-apet", "slide-09-multipet", "slide-10-comparativo"] },
   { id: "apet", label: "A.Pet", items: ["slide-11-apet-funciona", "slide-12-apet-reembolso-checklist", "slide-13-apet-carencia-preexistencia-exclusoes"] },
   { id: "petlove", label: "Petlove", items: ["slide-14-petlove-funciona", "slide-15-petlove-carencia-microchip", "slide-16-petlove-pulo-carencia", "slide-17-petlove-cobertura"] },
+  { id: "explicar", label: "Como explicar", items: ["slide-17b-como-explicar"] },
+  { id: "posvenda", label: "Pós-venda", items: ["slide-17c-pos-venda"] },
+  { id: "porque", label: "Por que Itaú", items: ["slide-20b-por-que-itau"] },
   { id: "venda", label: "Venda e operação", items: ["slide-18-venda-protegida", "slide-19-situacoes-risco", "slide-20-renovacao", "slide-21-encerramento", "slide-22-camada-produto"] }
 ];
 const COMPLIANCE_ITEMS = ["slide-18-venda-protegida", "slide-19-situacoes-risco"];
@@ -687,6 +884,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderListaSimples("apet-exclusoes", PET_DATA.exclusoes_apet);
   renderListaSimples("petlove-limitacoes", PET_DATA.petlove_limitacoes);
   renderCarencias();
+  renderComparativo();
   setupImages();
   setupManual();   // monta o acordeão (move as seções) antes do resto
   setupReveal();

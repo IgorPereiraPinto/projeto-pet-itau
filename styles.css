@@ -26,13 +26,13 @@
 
   /* ---- Tipografia ---- */
   --fonte: "Inter", "Source Sans 3", "Segoe UI", Arial, sans-serif;
-  --fs-hero: clamp(2.4rem, 5vw, 3.6rem);
-  --fs-h2: clamp(1.7rem, 2.8vw, 2.4rem);
-  --fs-sub: clamp(1.05rem, 1.5vw, 1.25rem);
-  --fs-lead: clamp(1.02rem, 1.15vw, 1.12rem);
-  --fs-card-title: 1.15rem;
-  --fs-card-body: .95rem;
-  --fs-small: .85rem;
+  --fs-hero: clamp(2.6rem, 5.4vw, 4rem);
+  --fs-h2: clamp(1.85rem, 3vw, 2.65rem);
+  --fs-sub: clamp(1.12rem, 1.7vw, 1.4rem);
+  --fs-lead: clamp(1.1rem, 1.35vw, 1.28rem);
+  --fs-card-title: clamp(1.18rem, 1.25vw, 1.32rem);
+  --fs-card-body: clamp(1rem, 1.05vw, 1.08rem);
+  --fs-small: clamp(.9rem, .95vw, .95rem);
   --lh-tight: 1.2;
   --lh-snug: 1.35;
   --lh-body: 1.6;
@@ -47,8 +47,10 @@
   --sp-7: 3rem;
 
   /* ---- Layout ---- */
-  --content-max: 1220px;
-  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  /* Largura ampliada para as laterais: conteúdo ocupa mais da tela em desktop,
+     mantendo respiro mínimo. Em 1920px: ~1560px de conteúdo (era 1220px). */
+  --content-max: 1560px;
+  --gutter: clamp(1.1rem, 3.2vw, 2.25rem);
   --section-y: clamp(2.75rem, 5.5vw, 4.5rem);
   --card-pad: clamp(1.25rem, 1.8vw, 1.6rem);
   --gap: 1.25rem;
@@ -75,7 +77,7 @@ body {
   color: var(--texto);
   background: var(--fundo);
   line-height: var(--lh-body);
-  font-size: clamp(15px, 1.05vw, 16px);
+  font-size: clamp(16px, 1.15vw, 18px);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -276,7 +278,24 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
 .card--petlove-soft { border-top: 4px solid var(--azul); }
 .card--petlove-soft h3 { color: var(--azul); }
 .card--apet-soft { border-top: 4px solid var(--laranja); }
-.card--incentivo { background: var(--fundo-secao); }
+/* Plano de incentivo: card informativo azul (não é selo de alerta âmbar) */
+.card--incentivo {
+  margin-top: var(--sp-6);
+  background: rgba(0, 59, 122, .05);
+  border-color: rgba(0, 59, 122, .18);
+  border-left: 4px solid var(--azul);
+  display: flex; gap: var(--sp-4); align-items: flex-start;
+}
+.card--incentivo h3 { color: var(--azul); }
+.card--incentivo .card__tag { color: var(--azul); opacity: .85; }
+.incentivo-icon {
+  flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(0, 59, 122, .1); color: var(--azul);
+}
+.incentivo-icon .icon { width: 24px; height: 24px; }
+.incentivo-body { flex: 1 1 auto; min-width: 0; }
+.incentivo-body > :last-child { margin-bottom: 0; }
 .card--segment { border-top: 4px solid var(--laranja); }
 .card--risk { border-top: 4px solid var(--ambar-tx); }
 .card--risk .icon-circle { background: var(--ambar-bg); color: var(--ambar-tx); }
@@ -385,6 +404,299 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
 .plan-pills li { background: rgba(236, 112, 0, .1); color: var(--laranja-forte); font-weight: 600; font-size: .82rem; padding: .25rem .7rem; border-radius: 999px; }
 
 /* =====================================================================
+   SEGMENTOS — selo de canal, card flex e quarto segmento citado
+   ===================================================================== */
+.card--segment { display: flex; flex-direction: column; }
+/* Selo de canal cai para a base do card, alinhando os três cards detalhados */
+.canal-selos { display: flex; flex-wrap: wrap; gap: .4rem; margin: auto 0 var(--sp-2); }
+.canal-selo {
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-size: .76rem; font-weight: 700; line-height: 1;
+  padding: .34rem .65rem; border-radius: 999px;
+}
+.canal-selo .icon { width: 15px; height: 15px; }
+/* Canais em tom neutro, para não confundir com a cor de modelo (A.Pet/Petlove) */
+.canal-selo--mobile { background: #EEF1F5; color: var(--texto); }
+.canal-selo--p360i { background: var(--texto); color: #fff; }
+/* Frase de apoio do segmento (existe só no IP): visual discreto, NUNCA com
+   aparência de selo/nota oficial. Hairline separa dos selos de canal. */
+.card__nota {
+  margin: var(--sp-2) 0 0; padding-top: var(--sp-2);
+  border-top: 1px solid #EEF1F5;
+  font-size: var(--fs-small); color: var(--muted); line-height: var(--lh-snug);
+}
+.card__nota[hidden] { display: none; }
+
+/* Quarto segmento, apenas citado: chip discreto + nome */
+.segment-citado {
+  display: flex; align-items: center; gap: var(--sp-3);
+  margin-top: var(--sp-5); padding: var(--sp-4) var(--sp-5);
+  border: 1px dashed #CBD2DC; border-radius: var(--raio);
+  background: rgba(255, 255, 255, .5);
+}
+.segment-citado__chip {
+  flex: 0 0 auto; font-size: .74rem; font-weight: 700; color: var(--muted);
+  background: #EEF1F5; padding: .28rem .7rem; border-radius: 999px;
+}
+.segment-citado__name { font-weight: 800; color: var(--texto); margin: 0; font-size: 1.05rem; }
+
+/* =====================================================================
+   FAIXA DIVISÓRIA DE BLOCO INTERNO (ex.: critérios obrigatórios)
+   ===================================================================== */
+.block-head {
+  margin-top: var(--sp-7); margin-bottom: var(--sp-5);
+  padding-top: var(--sp-5); border-top: 1px solid #E2E7EE;
+}
+.block-title { font-size: clamp(1.3rem, 2vw, 1.7rem); line-height: var(--lh-snug); }
+.block-title::before {
+  content: ""; display: inline-block; width: 30px; height: 4px;
+  border-radius: 2px; background: var(--laranja); vertical-align: middle;
+  margin-right: .65rem;
+}
+.block-sub { color: var(--muted); margin: var(--sp-1) 0 0; }
+
+/* =====================================================================
+   CRITÉRIOS OBRIGATÓRIOS
+   ===================================================================== */
+.card--criterio-base { margin-top: var(--sp-4); }
+.criterios-pair { margin-top: var(--sp-4); }
+.checklist--cols { columns: 2; column-gap: var(--sp-6); }
+.checklist--cols li { break-inside: avoid; -webkit-column-break-inside: avoid; }
+.card--criterio .model-chip { margin-bottom: var(--sp-3); }
+/* Ícones temáticos nos critérios um pouco maiores para leitura */
+.checklist--themed li > .icon { width: 20px; height: 20px; margin-top: .15rem; }
+.criterio-destaque { font-size: 1.08rem; color: var(--texto-2); margin-top: var(--sp-3); }
+.criterio-destaque__big {
+  display: block; font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 800;
+  color: var(--azul); line-height: var(--lh-tight); margin-bottom: var(--sp-1);
+}
+
+/* =====================================================================
+   JORNADA DE CONTRATAÇÃO — dois caminhos (SuperApp e Plataforma 360i)
+   ===================================================================== */
+.journey-grid { margin-top: var(--sp-5); }
+.journey-card {
+  background: #fff; border: 1px solid #EEF1F5; border-radius: var(--raio);
+  padding: var(--card-pad); box-shadow: var(--sombra);
+  display: flex; flex-direction: column;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur);
+}
+.journey-card:hover { transform: translateY(-4px); box-shadow: var(--sombra-hover); }
+.journey-card__head { margin-bottom: var(--sp-4); }
+.journey-card__head h3 { margin-top: var(--sp-3); font-size: var(--fs-card-title); }
+.journey-card__seg {
+  display: inline-block; margin-left: .4rem; font-size: .74rem; font-weight: 700;
+  color: var(--azul); background: rgba(0, 59, 122, .08);
+  padding: .22rem .6rem; border-radius: 999px; vertical-align: middle;
+}
+/* Disponibilidade por canal: frase de apoio discreta (não é selo de nota) */
+.journey-card__avail {
+  margin: var(--sp-2) 0 0; font-size: var(--fs-small);
+  color: var(--muted); font-weight: 600;
+}
+.journey-card__avail--ip { color: var(--azul); }
+.journey-card__mock { margin: 0 0 var(--sp-4); }
+.journey-card__body { display: flex; flex-direction: column; }
+.journey-card__route-title { font-weight: 700; color: var(--texto); margin: 0 0 var(--sp-1); }
+
+.route-steps--compact { margin-top: 0; }
+.route-steps--compact li { padding: .28rem 0; font-size: var(--fs-small); }
+.route-steps--compact .route-steps__n { width: 24px; height: 24px; font-size: .8rem; }
+
+.journey-flow {
+  list-style: none; counter-reset: jf; padding: var(--sp-3) 0 0; margin: var(--sp-3) 0 0;
+  border-top: 1px solid #EEF1F5;
+}
+.journey-flow li {
+  counter-increment: jf; position: relative;
+  padding: .35rem 0 .35rem 2rem; color: var(--texto-2); font-size: var(--fs-card-body);
+}
+.journey-flow li::before {
+  content: counter(jf); position: absolute; left: 0; top: .35rem;
+  width: 1.45rem; height: 1.45rem; border-radius: 50%;
+  background: var(--fundo-secao); color: var(--laranja-forte);
+  font-weight: 800; font-size: .78rem;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Mockup de desktop (Plataforma 360i) */
+.desktop-mock { margin: 0; display: flex; justify-content: center; }
+.desktop-mock__frame {
+  width: min(380px, 100%); border: 8px solid #1A1A1A; border-radius: 14px;
+  background: #1A1A1A; box-shadow: var(--sombra-hover); overflow: hidden;
+}
+.desktop-mock__bar { display: flex; gap: .35rem; padding: .5rem .6rem; }
+.desktop-mock__bar span { width: 9px; height: 9px; border-radius: 50%; background: #4A4A4A; }
+.desktop-mock__screen { display: flex; background: #fff; min-height: 160px; }
+.desktop-mock__side { flex: 0 0 44%; background: var(--fundo-secao); padding: .75rem .6rem; display: flex; flex-direction: column; gap: .45rem; }
+.desktop-mock__crumb { font-size: .72rem; color: var(--muted); font-weight: 600; }
+.desktop-mock__item { font-size: .78rem; font-weight: 700; padding: .4rem .55rem; border-radius: 8px; color: var(--texto-2); background: #fff; }
+.desktop-mock__item.is-active { background: var(--laranja); color: #fff; }
+.desktop-mock__main { flex: 1; display: flex; flex-direction: column; gap: .6rem; align-items: center; justify-content: center; padding: .85rem; }
+.desktop-mock__hero { width: 100%; height: 80px; border-radius: 10px; background: linear-gradient(135deg, rgba(236, 112, 0, .08), var(--fundo-secao)); display: flex; align-items: center; justify-content: center; color: var(--laranja); }
+.desktop-mock__btn { background: var(--laranja); color: #fff; border-radius: 999px; padding: .45rem .95rem; font-weight: 700; font-size: .8rem; }
+
+/* =====================================================================
+   BLOCO 2 — COMPARATIVO POR PLANO (cards expansíveis A.Pet x Petlove)
+   Colunas simétricas: mesmo fundo neutro nas duas; a cor de modelo aparece
+   só no selo e nos ícones, como identificação — nunca como superioridade.
+   ===================================================================== */
+.compare-cards { display: grid; gap: var(--gap); margin-top: var(--sp-5); }
+.cmp-card {
+  background: #fff; border: 1px solid #EEF1F5; border-radius: var(--raio);
+  box-shadow: var(--sombra); overflow: hidden;
+  transition: box-shadow var(--dur);
+}
+.cmp-card[open] { box-shadow: var(--sombra-hover); }
+
+/* Cabeçalho = visão fechada (clicável) */
+.cmp-card__head {
+  list-style: none; cursor: pointer; display: flex; align-items: center;
+  gap: var(--sp-4); padding: var(--card-pad);
+}
+.cmp-card__head::-webkit-details-marker { display: none; }
+.cmp-card__head:hover .cmp-card__name { color: var(--laranja-forte); }
+.cmp-card__main { flex: 1 1 auto; min-width: 0; }
+.cmp-card__titles { display: flex; align-items: baseline; gap: var(--sp-3); flex-wrap: wrap; }
+.cmp-card__name { font-size: clamp(1.2rem, 1.6vw, 1.5rem); transition: color var(--dur); }
+.cmp-card__price { font-weight: 800; color: var(--laranja-forte); font-size: 1.15rem; }
+.cmp-card__per { font-weight: 600; color: var(--muted); font-size: .85rem; }
+.cmp-card__chips { display: flex; flex-wrap: wrap; gap: .4rem; margin: var(--sp-2) 0; align-items: center; }
+.cmp-chips__group { display: inline-flex; gap: .3rem; flex-wrap: wrap; }
+.cmp-chip { font-size: .74rem; font-weight: 700; padding: .22rem .6rem; border-radius: 999px; }
+.cmp-chip--seg { background: #EEF1F5; color: var(--texto-2); }
+.cmp-chip--apet { background: rgba(236, 112, 0, .12); color: var(--laranja-forte); }
+.cmp-chip--petlove { background: rgba(0, 59, 122, .1); color: var(--azul); }
+.cmp-card__pos { color: var(--texto-2); font-size: var(--fs-card-body); margin: 0; }
+.cmp-card__chev {
+  flex: 0 0 auto; width: 13px; height: 13px; margin-left: var(--sp-2);
+  border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg); transition: transform var(--dur) var(--ease);
+}
+.cmp-card[open] .cmp-card__chev { transform: rotate(-135deg); }
+
+/* Corpo = visão aberta, duas colunas simétricas */
+.cmp-card__body { padding: 0 var(--card-pad) var(--card-pad); }
+.cmp-card__resumo {
+  font-weight: 700; color: var(--texto); margin: 0 0 var(--sp-4);
+  padding-top: var(--sp-3); border-top: 1px solid #EEF1F5;
+}
+.cmp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); }
+.cmp-col { background: var(--fundo-secao); border-radius: var(--raio-sm); padding: var(--sp-5); }
+.cmp-col__head { display: flex; align-items: center; gap: .5rem; margin-bottom: var(--sp-4); }
+.cmp-col__badge { font-size: .78rem; font-weight: 800; padding: .25rem .7rem; border-radius: 999px; }
+.cmp-col__badge--apet { background: rgba(236, 112, 0, .14); color: var(--laranja-forte); }
+.cmp-col__badge--petlove { background: rgba(0, 59, 122, .12); color: var(--azul); }
+.cmp-col__tipo { font-weight: 700; color: var(--texto-2); font-size: var(--fs-small); }
+
+.cmp-field { margin-bottom: var(--sp-4); }
+.cmp-field:last-child { margin-bottom: 0; }
+.cmp-field__label {
+  display: block; font-size: .72rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--muted); margin-bottom: var(--sp-1);
+}
+.cmp-field__val { margin: 0; color: var(--texto-2); font-size: var(--fs-card-body); }
+
+.cmp-cob, .cmp-lim { list-style: none; padding: 0; margin: 0; }
+.cmp-cob li { display: flex; gap: .5rem; align-items: flex-start; padding: .18rem 0; color: var(--texto-2); font-size: var(--fs-card-body); }
+.cmp-cob .icon { width: 17px; height: 17px; color: var(--laranja); flex: 0 0 auto; margin-top: .2rem; }
+.cmp-col--petlove .cmp-cob .icon { color: var(--azul); }
+.cmp-cob li.is-pend .icon, .cmp-cob li.is-pend span { color: var(--ambar-tx); }
+
+.cmp-lim li { display: flex; justify-content: space-between; gap: var(--sp-3); padding: .4rem 0; border-bottom: 1px solid #E7ECF2; font-size: var(--fs-small); }
+.cmp-lim li:last-child { border-bottom: 0; }
+.cmp-lim__item { color: var(--texto); font-weight: 600; flex: 0 0 40%; }
+.cmp-lim__val { color: var(--texto-2); text-align: right; flex: 1 1 auto; }
+.cmp-pend { display: inline-flex; align-items: center; gap: .3rem; color: var(--ambar-tx); font-weight: 700; }
+.cmp-pend .icon { width: 15px; height: 15px; }
+
+.cmp-dif {
+  display: flex; gap: .5rem; align-items: flex-start; background: #fff;
+  border: 1px solid #EEF1F5; border-radius: var(--raio-sm);
+  padding: .6rem .8rem; margin-bottom: var(--sp-4); font-size: var(--fs-small); color: var(--texto-2);
+}
+.cmp-dif .icon { width: 18px; height: 18px; color: var(--laranja); flex: 0 0 auto; margin-top: .1rem; }
+.cmp-col--petlove .cmp-dif .icon { color: var(--azul); }
+
+/* Nota permitida (selo âmbar) dentro do comparativo */
+.cmp-nota {
+  display: flex; gap: .5rem; align-items: flex-start;
+  background: var(--ambar-bg); color: var(--ambar-tx);
+  border-radius: var(--raio-sm); padding: .7rem .85rem; font-size: var(--fs-small);
+}
+.cmp-nota .icon { width: 18px; height: 18px; flex: 0 0 auto; margin-top: .1rem; }
+.cmp-nota p { margin: 0; }
+
+/* =====================================================================
+   BLOCO 4 — COMO EXPLICAR E QUAL MODELO INDICAR
+   Cards de fala, matriz de decisão e argumentos imparciais. Cor de modelo
+   só como identificação (selo/ícone), nunca como peso ou superioridade.
+   ===================================================================== */
+.fala-card p { margin: 0; }
+.fala-card .model-chip { margin-bottom: var(--sp-3); }
+.fala-trio { margin-top: var(--gap); }
+.fala-card h4 { font-size: var(--fs-card-title); margin-bottom: var(--sp-2); }
+.fala-card__ic { margin-bottom: var(--sp-3); }
+
+/* Matriz de decisão rápida */
+.matriz { display: grid; gap: var(--sp-3); margin: var(--sp-4) 0; }
+.matriz__row {
+  display: grid; grid-template-columns: 1fr auto minmax(150px, auto);
+  align-items: center; gap: var(--sp-4);
+  background: #fff; border: 1px solid #EEF1F5; border-radius: var(--raio);
+  padding: var(--sp-4) var(--sp-5); box-shadow: var(--sombra);
+}
+.matriz__perfil { color: var(--texto); font-weight: 600; }
+.matriz__arrow { color: var(--muted); font-weight: 800; font-size: 1.2rem; }
+.matriz__rec { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; justify-content: flex-end; text-align: right; }
+.matriz__rec .model-chip { margin-bottom: 0; }
+.matriz__obs { color: var(--muted); font-size: var(--fs-small); width: 100%; text-align: right; }
+.protect-strip--bottom { margin-top: var(--sp-4); }
+
+/* Argumentos de venda imparciais */
+.arg-card .model-chip { margin-bottom: var(--sp-3); }
+/* Checks azuis no card Petlove (identificação de modelo, fora de slide--petlove) */
+.card--petlove-soft .checklist .icon--check { color: var(--azul); }
+
+/* =====================================================================
+   BLOCO 5 — PÓS-VENDA E USO DO PLANO
+   Uso por modelo (fluxo + contato discreto), comparativo, cancelamento e FAQ.
+   ===================================================================== */
+.uso-card { display: flex; flex-direction: column; }
+.uso-card .model-chip { margin-bottom: var(--sp-3); }
+.uso-card h3 { font-size: var(--fs-card-title); margin-bottom: var(--sp-3); }
+.uso-card .journey-flow { border-top: 0; padding-top: 0; margin-top: 0; }
+
+/* Card discreto de atendimento (telefones nunca como foco do slide) */
+.contato-card {
+  margin-top: auto; padding: var(--sp-3) var(--sp-4);
+  background: var(--fundo-secao); border-radius: var(--raio-sm);
+}
+.contato-card h4 {
+  font-size: var(--fs-small); color: var(--muted); margin-bottom: var(--sp-1);
+  text-transform: uppercase; letter-spacing: .03em;
+}
+.contato-card h4 .icon { color: var(--muted); }
+.contato-card p { margin: 0; font-weight: 600; color: var(--texto); font-size: var(--fs-card-body); }
+
+/* FAQ acordeão de pós-venda */
+.faq { display: grid; gap: var(--sp-3); margin-top: var(--sp-4); }
+.faq-item { background: #fff; border: 1px solid #EEF1F5; border-radius: var(--raio); box-shadow: var(--sombra); overflow: hidden; }
+.faq-item > summary {
+  list-style: none; cursor: pointer; padding: var(--sp-4) var(--sp-5);
+  font-weight: 700; color: var(--texto); display: flex; align-items: center; gap: var(--sp-3);
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item > summary::after {
+  content: ""; margin-left: auto; flex: 0 0 auto; width: 11px; height: 11px;
+  border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg); transition: transform var(--dur) var(--ease);
+}
+.faq-item[open] > summary::after { transform: rotate(-135deg); }
+.faq-item > summary:hover { color: var(--laranja-forte); }
+.faq-item > p { margin: 0; padding: 0 var(--sp-5) var(--sp-5); color: var(--texto-2); font-size: var(--fs-card-body); }
+
+/* =====================================================================
    TIMELINE (jornada)
    ===================================================================== */
 .timeline { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
@@ -451,8 +763,26 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
 .cov-card__list { list-style: none; padding: 0; margin: 0 0 .8rem; flex: 1; }
 .cov-card__list li { display: flex; gap: .45rem; align-items: flex-start; font-size: .86rem; color: var(--texto-2); padding: .22rem 0; }
 .cov-card__list .icon { width: 16px; height: 16px; color: var(--laranja); flex: 0 0 auto; margin-top: .15rem; }
+/* Item pendente na prateleira A.Pet (tartarectomia não é cobertura confirmada) */
+.cov-card__list li.is-pend, .cov-card__list li.is-pend .icon { color: var(--ambar-tx); }
 .cov-card__price { margin-top: auto; color: var(--laranja-forte); font-weight: 800; border-top: 1px solid #EEF1F5; padding-top: .6rem; }
 .cov-card__flag { font-size: .72rem; color: var(--ambar-tx); background: var(--ambar-bg); border-radius: 6px; padding: .15rem .45rem; display: inline-block; margin-top: .4rem; }
+/* Selo de nota no slot do aside (slide 16, pulo de carência), sem margem extra */
+.nota-aside .badge { margin-top: 0; }
+
+/* =====================================================================
+   BLOCO 7 — POR QUE OFERECER PELO ITAÚ (benefícios em lista visual)
+   ===================================================================== */
+.beneficios-list { list-style: none; padding: 0; margin: var(--sp-5) 0 0; display: grid; gap: var(--gap); }
+.beneficio {
+  display: flex; gap: var(--sp-4); align-items: center;
+  background: #fff; border: 1px solid #EEF1F5; border-radius: var(--raio);
+  padding: var(--card-pad); box-shadow: var(--sombra);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur);
+}
+.beneficio:hover { transform: translateY(-4px); box-shadow: var(--sombra-hover); }
+.beneficio .icon-circle { margin-bottom: 0; }
+.beneficio p { margin: 0; color: var(--texto-2); font-size: var(--fs-card-body); }
 
 .note-block { background: var(--fundo-secao); border-radius: var(--raio); padding: 1.2rem 1.4rem; margin-top: var(--sp-5); border-top: 4px solid var(--laranja); }
 .note-block p { color: var(--texto-2); font-size: .92rem; margin-bottom: var(--sp-2); }
@@ -584,6 +914,14 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
   .hero { grid-template-columns: 1fr; }
   .grid--2, .grid--3 { grid-template-columns: 1fr; }
   .compliance-pair { grid-template-columns: 1fr; }
+  .checklist--cols { columns: 1; }
+  .segment-citado { flex-direction: row; }
+  /* Comparativo: colunas A.Pet/Petlove empilham no mobile */
+  .cmp-cols { grid-template-columns: 1fr; }
+  /* Matriz de decisão: empilha perfil e recomendação */
+  .matriz__row { grid-template-columns: 1fr; gap: var(--sp-2); }
+  .matriz__arrow { display: none; }
+  .matriz__rec, .matriz__obs { justify-content: flex-start; text-align: left; }
   .media-slot--banner { aspect-ratio: 16 / 9; }
 
   /* Escada empilha como degraus iguais */
