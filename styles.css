@@ -156,8 +156,8 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
 
 .nav-group__panel {
   list-style: none; margin: 0; padding: .4rem;
-  position: absolute; top: calc(100% + .5rem); left: 50%;
-  transform: translateX(-50%) translateY(-6px);
+  position: absolute; top: calc(100% + .5rem); left: 0; right: auto;
+  transform: translateY(-6px);
   min-width: 220px; max-width: calc(100vw - 2 * var(--gutter));
   background: #fff; border-radius: var(--raio);
   box-shadow: var(--sombra-hover);
@@ -165,9 +165,11 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
   transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
   z-index: 60;
 }
-.nav-group.is-open > .nav-group__panel { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+/* Último grupo abre alinhado à direita, para não cortar pela borda direita */
+.nav-group:last-child > .nav-group__panel { left: auto; right: 0; }
+.nav-group.is-open > .nav-group__panel { opacity: 1; visibility: visible; transform: translateY(0); }
 @media (hover: hover) and (pointer: fine) {
-  .nav-group:hover > .nav-group__panel { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-group:hover > .nav-group__panel { opacity: 1; visibility: visible; transform: translateY(0); }
 }
 .nav-group__panel a {
   display: block; color: var(--texto); text-decoration: none;
@@ -699,6 +701,31 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
 }
 .contato-card h4 .icon { color: var(--muted); }
 .contato-card p { margin: 0; font-weight: 600; color: var(--texto); font-size: var(--fs-card-body); }
+
+/* Nota operacional de pagamento (slide 06): neutra, sem alerta âmbar */
+.pay-note {
+  display: flex; align-items: center; gap: .5rem;
+  margin-top: var(--sp-5); color: var(--texto-2); font-size: var(--fs-small);
+}
+.pay-note .icon { color: var(--muted); flex: 0 0 auto; }
+
+/* Suporte interno Petlove: card sóbrio, slate neutro, NUNCA selo âmbar nem
+   cor de modelo. Canal interno, não é nota especial nem canal do cliente. */
+.suporte-interno {
+  margin-top: var(--sp-3); padding: var(--sp-3) var(--sp-4);
+  background: #F8FAFC; border: 1px solid #E2E7EE; border-left: 3px solid #64748B;
+  border-radius: var(--raio-sm);
+}
+.suporte-interno__tag {
+  display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .02em;
+  text-transform: uppercase; color: #475569; background: #EEF1F5;
+  padding: .2rem .55rem; border-radius: 999px; margin-bottom: var(--sp-2);
+}
+.suporte-interno h4 { font-size: var(--fs-card-body); color: var(--texto); margin: 0 0 var(--sp-1); }
+.suporte-interno p { margin: 0 0 var(--sp-1); color: var(--texto-2); font-size: var(--fs-small); line-height: var(--lh-snug); }
+.suporte-interno p:last-child { margin-bottom: 0; }
+.suporte-interno__contato a { font-weight: 700; word-break: break-all; }
+.suporte-interno__sla { color: var(--muted); font-style: italic; }
 
 /* FAQ acordeão de pós-venda */
 .faq { display: grid; gap: var(--sp-3); margin-top: var(--sp-4); }
