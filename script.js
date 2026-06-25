@@ -785,10 +785,12 @@ function setupFilter() {
       group.querySelectorAll(".acc-item").forEach((item) => {
         const match = !q || item.dataset.search.indexOf(q) !== -1;
         item.hidden = !match;
+        item.classList.toggle("acc-hidden", !match);
         if (q && match) { setItemOpen(item, true); anyInGroup = true; }
         if (!q) { setItemOpen(item, false); }
       });
       group.hidden = !!q && !anyInGroup;
+      group.classList.toggle("acc-hidden", !!q && !anyInGroup);
       setGroupOpen(group, q ? anyInGroup : false);
       if (anyInGroup) anyGlobal = true;
     });

@@ -1052,6 +1052,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 .accordion { max-width: var(--content-max); margin-inline: auto; padding: 0 var(--gutter) var(--section-y); display: flex; flex-direction: column; gap: var(--sp-4); }
 
+/* Filtro da busca: oculta visualmente itens/grupos sem correspondência */
+.acc-hidden { display: none !important; }
+
 /* Nível 1 — grupo */
 .acc-group { border: 1px solid #E7ECF2; border-radius: var(--raio); background: #fff; box-shadow: var(--sombra); overflow: hidden; }
 .acc-group__h { margin: 0; }
