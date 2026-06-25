@@ -414,6 +414,8 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
 .badge--green { background: var(--verde-bg); color: var(--verde-tx); }
 .badge--red { background: var(--vermelho-bg); color: var(--vermelho-tx); }
 .badge--amber { background: var(--ambar-bg); color: var(--ambar-tx); }
+/* Nota informativa neutra (slate): nem alerta âmbar, nem selo verde */
+.badge--info { background: #EEF2F7; color: #334155; }
 .badge--soft { margin-top: var(--sp-4); font-size: var(--fs-small); }
 .compliance-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-5); }
 .compliance-pair .badge { margin-top: 0; height: 100%; }
@@ -813,6 +815,8 @@ em { font-style: normal; font-weight: 600; color: var(--texto-2); }
 .cov-card__list .icon { width: 16px; height: 16px; color: var(--laranja); flex: 0 0 auto; margin-top: .15rem; }
 /* Item pendente na prateleira A.Pet (tartarectomia não é cobertura confirmada) */
 .cov-card__list li.is-pend, .cov-card__list li.is-pend .icon { color: var(--ambar-tx); }
+/* Detalhe inline de cobertura (ex.: tartarectomia A.Pet confirmada no Titânio) */
+.cov-detail { font-style: normal; color: var(--muted); font-size: .92em; }
 .cov-card__price { margin-top: auto; color: var(--laranja-forte); font-weight: 800; border-top: 1px solid #EEF1F5; padding-top: .6rem; }
 .cov-card__flag { font-size: .72rem; color: var(--ambar-tx); background: var(--ambar-bg); border-radius: 6px; padding: .15rem .45rem; display: inline-block; margin-top: .4rem; }
 /* Selo de nota no slot do aside (slide 16, pulo de carência), sem margem extra */

@@ -75,7 +75,7 @@ const PET_DATA = {
   ],
   exclusoes_apet: [
     "doenças congênitas e crônicas", "doenças oncológicas e transtornos comportamentais",
-    "tratamentos odontológicos (limpeza de tártaro pendente de confirmação)",
+    "tratamentos odontológicos em geral, exceto tartarectomia quando prevista no plano contratado",
     "tratamentos estéticos e de emagrecimento", "nutrologia e consultas em nutrição para emagrecimento",
     "obstetrícia (parto, pré-natal, pós-parto)", "teste, exames e tratamento de leishmaniose",
     "doenças causadas por falta de vacinação", "hemodiálise e diálise", "radioterapia",
@@ -206,7 +206,7 @@ const PET_DATA = {
     },
     notas: {
       petlovePrimeiroPagamento: "A contagem de carência e renovação e a liberação para uso do plano passam a iniciar após a confirmação do primeiro pagamento. A microchipagem segue obrigatória para utilização do plano, mas não é mais o marco inicial de carência. Condições gerais em atualização, previsão de ajuste até o fim de julho de 2026.",
-      apetTartarectomia: "Informação pendente de confirmação. Confirmar a regra antes de orientar o cliente."
+      apetTartarectomia: "Coberta no plano Titânio: 1 utilização até R$ 500, carência de 180 dias. Nos demais planos, não tratar como cobertura; orientar validação conforme o plano contratado. Não prometer cobertura odontológica ampla."
     },
     planos: [
       { id: "bronze", nome: "Bronze", preco: 19.9, segmentos: ["IA"],
@@ -221,7 +221,6 @@ const PET_DATA = {
       { id: "platina", nome: "Platina", preco: 100.0, segmentos: ["IU", "IP"],
         posicionamento: "Robusto, acompanhamento preventivo e maior amplitude de cobertura.",
         coberturas: ["tudo do Ouro", "cirurgias", "castração", "transfusão de sangue", "consultas e procedimentos especialistas"],
-        apetTartarectomiaTopic: true,
         precoNota: "R$ 100,00/mês nos dois modelos.",
         diferenciais: {
           apet: "Voucher de medicamentos de R$ 150 por ano, carência 30 dias.",
@@ -246,7 +245,7 @@ const PET_DATA = {
           { item: "Consulta com especialista", apet: "Ilimitado até R$ 200/uso · carência 30 dias", petlove: "3 utilizações · carência 60 dias" },
           { item: "Castração", apet: "1 utilização até R$ 500 · carência 180 dias", petlove: "1 utilização · carência 120 dias" },
           { item: "Transfusão", apet: "Ilimitado até R$ 300/uso · carência 60 dias", petlove: "Ilimitado · carência 120 dias" },
-          { item: "Tartarectomia (limpeza de tártaro)", apetPendente: true, petlove: "Coberto · carência 180 dias" }
+          { item: "Tartarectomia (limpeza de tártaro)", apet: null, petlove: "Coberto · carência 180 dias" }
         ] },
       { id: "titanio", nome: "Titânio", preco: 185.0, segmentos: ["IP"],
         posicionamento: "Máxima cobertura, maior amplitude e previsibilidade financeira.",
@@ -299,11 +298,11 @@ function renderEscada() {
 function renderCoberturas() {
   // Mesma prateleira renderizada nas DUAS seções peer: Petlove (coberturas-grid)
   // e A.Pet (coberturas-grid-apet). No lado A.Pet, a limpeza de tártaro
-  // (tartarectomia) NÃO é cobertura confirmada: aparece como pendente.
+  // (tartarectomia) é cobertura CONFIRMADA só no Titânio, com o detalhe.
   const buildHtml = (model) => PET_DATA.planos.map((p) => {
     const itens = p.coberturas.map((c) => {
       if (/tártaro/i.test(c) && model === "apet") {
-        return `<li class="is-pend"><svg class="icon" aria-hidden="true"><use href="#ic-alert"></use></svg><span>${c} (pendente de confirmação)</span></li>`;
+        return `<li><svg class="icon" aria-hidden="true"><use href="#ic-check"></use></svg><span>${c} <em class="cov-detail">(1 utilização até R$ 500 · carência 180 dias)</em></span></li>`;
       }
       return `<li><svg class="icon" aria-hidden="true"><use href="#ic-check"></use></svg><span>${c}</span></li>`;
     }).join("");
@@ -403,24 +402,17 @@ function renderComparativo() {
   const field = (label, val) =>
     `<div class="cmp-field"><span class="cmp-field__label">${label}</span><p class="cmp-field__val">${val}</p></div>`;
 
-  // Coberturas por coluna: a tartarectomia da A.Pet aparece como pendente (âmbar)
-  const cobList = (plan, model) => plan.coberturas.map((c) => {
-    const tartar = /tártaro/i.test(c);
-    if (tartar && model === "apet" && plan.apetTartarectomiaTopic) {
-      return `<li class="is-pend"><svg class="icon" aria-hidden="true"><use href="#ic-alert"></use></svg><span>${c} (pendente de confirmação)</span></li>`;
-    }
-    return `<li><svg class="icon" aria-hidden="true"><use href="#ic-check"></use></svg><span>${c}</span></li>`;
-  }).join("");
+  // Coberturas por coluna (check). A nuance da tartarectomia A.Pet (só Titânio)
+  // fica na nota de "Pontos de atenção" do card, não no item da lista.
+  const cobList = (plan, model) => plan.coberturas.map((c) =>
+    `<li><svg class="icon" aria-hidden="true"><use href="#ic-check"></use></svg><span>${c}</span></li>`
+  ).join("");
 
   // Limites/tetos/utilizações (só Platina): item não renderizado no lado sem dado
   const limList = (plan, model) => plan.tabela.map((r) => {
-    const pend = model === "apet" && r.apetPendente;
     const val = model === "apet" ? r.apet : r.petlove;
-    if (!val && !pend) return "";
-    const v = pend
-      ? `<span class="cmp-pend"><svg class="icon" aria-hidden="true"><use href="#ic-alert"></use></svg>pendente de confirmação</span>`
-      : val;
-    return `<li><span class="cmp-lim__item">${r.item}</span><span class="cmp-lim__val">${v}</span></li>`;
+    if (!val) return "";
+    return `<li><span class="cmp-lim__item">${r.item}</span><span class="cmp-lim__val">${val}</span></li>`;
   }).join("");
 
   const column = (model, plan) => {
